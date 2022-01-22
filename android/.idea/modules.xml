@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jeutchad.iml" filepath="$PROJECT_DIR$/.idea/modules/jeutchad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/jeutchad.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/jeutchad.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-361615206/jeutchad.react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/.idea/modules/-361615206/jeutchad.react-native-gesture-handler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1031506563/jeutchad.react-native-safe-area-context.iml" filepath="$PROJECT_DIR$/.idea/modules/1031506563/jeutchad.react-native-safe-area-context.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1903779237/jeutchad.react-native-screens.iml" filepath="$PROJECT_DIR$/.idea/modules/-1903779237/jeutchad.react-native-screens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-501662340/jeutchad.react-native-vector-icons.iml" filepath="$PROJECT_DIR$/.idea/modules/-501662340/jeutchad.react-native-vector-icons.iml" />
+    </modules>
+  </component>
+</project>
