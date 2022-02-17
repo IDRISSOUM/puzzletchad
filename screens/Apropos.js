@@ -39,19 +39,19 @@ class Apropos extends Component {
     return (
       <View style={{ flex: 0.5, flexDirection: 'column',}}>
         <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15, }} onPress={() => this.props.navigation.navigate('Autre')}>
-            <Text style={{fontSize: 18, fontFamily: "Cochin", fontStyle: 'normal'}}><Icon name="infocirlce" color="#000" size={30} />A propos de Cato Tchad</Text>
+            <Text style={{fontSize: 18, fontFamily: "Cochin", fontStyle: 'normal'}}><Icon name="infocirlce" color="#000" size={30} /> A propos de Cato Tchad</Text>
           </TouchableOpacity>
           <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15,}} onPress={() => this.props.navigation.navigate('Real')}>
-            <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal', }}><Icon name="folderopen" color="#000" size={30} />Nos Realisations</Text>
+            <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal', }}><Icon name="folderopen" color="#000" size={30} /> Nos Realisations</Text>
           </TouchableOpacity>
           <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15,}} onPress={() => this.props.navigation.navigate('Site')}>
-            <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon name="earth" color="#000" size={30} />Voir Notre Site Web</Text>
+            <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon name="earth" color="#000" size={30} /> Voir Notre Site Web</Text>
           </TouchableOpacity>
           <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15,}} onPress={this.onShare}>
-            <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon name="sharealt" color="#000" size={30} />Partager</Text>
+            <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon name="sharealt" color="#000" size={30} /> Partager</Text>
           </TouchableOpacity>
           <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15,}} onPress={() => this.props.navigation.navigate('')}>
-            <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon name="star" color="#000" size={30} />Evaluer</Text>
+            <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon name="star" color="#000" size={30} /> Evaluer</Text>
           </TouchableOpacity>
           <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15, marginHorizontal: 30,}} onPress={() => this.props.navigation.navigate('')}>
             <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon color="#000" size={30} />Version 1.0.0</Text>

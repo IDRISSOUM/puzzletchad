@@ -93,9 +93,9 @@ export default class Accueil extends Component {
                     
             )
           }}
-        />
+        />        
+      </View>
           
-          </View>
           <View style={{ 
             flex: 0.36, 
             backgroundColor: '#22427CFF' 

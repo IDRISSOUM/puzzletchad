@@ -11,81 +11,99 @@ class Autre extends Component {
   render() {
     return (
       <ScrollView style={{}}>
-        <Image
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{
-            flex: 0.5,
-            resizeMode: 'cover',
-            alignSelf: 'center',
-            borderRadius: 100,
-            // maxWidth: 500,
-            paddingVertical: 30,
-            shadowColor: '#FFF',
-            shadowOffset: {
-              width: 0,
-              height: 1,
-            },
-            shadowOpacity: 0.18,
-            shadowRadius: 1.0,
-
-            elevation: 1,
-          }}
-          source={require('../assets/cato_logo.jpg')}
-        />
-        <Text
-          style={{
-            fontSize: 15,
-            textAlign: 'justify',
-            fontWeight: 'bold',
-            fontFamily: 'Cochin',
-            marginEnd: 15,
-            marginLeft: 15,
-          }}>
-          CartoTchad {}
+        
+      <View style={{
+        flex: 1,
+      }}>   
           <Text style={styles.innerText}>
-            est spécialisé dans la production de cartographies interactives,
-            l’analyse spatiale, les SIG dans divers domaines :
+            Une Plateforme Cartographique et Système d’Information Géographique (SIG), Géomatique, Collecte de Donnée Mobile (CDM), de la production de cartographies interactives, 
+            l’analyse spatiale, de Développement des Applications web et mobile et de Conseils-Formation oriente dans le secteur de la Technologie d’information et de 
+            Communication (TIC), de la santé, l’Eduction-Enseignement Supérieur, Géomarketing, Agriculture et Elevage, de la mine-Géologie, l’Environnement-Aménagement etc. :
           </Text>
-        </Text>
-        <Text
-          style={{
-            fontSize: 15,
-            textAlign: 'justify',
-            fontWeight: 'Light',
-            fontFamily: 'Cochin',
-            marginEnd: 15,
-            marginLeft: 15,
-          }}>
-          {'\n'}
-          Première étape dans toute évaluation, enquête ou étude est la collecte
-          de données. Elle garantit des données de qualité pour une prise de
-          décision appropriée. La collecte de données mobiles (Mobile Data
-          Collection, MDC) utilise des smartphones/tablettes pour collecter des
-          données primaires sur les besoins des bénéficiaires, les mouvements de
-          population, la localisation des infrastructures et l'évaluation. Carto
-          Tchad est une plateforme cartographique et d’études spécialisé dans
-          les études statistique, de collecté de donnée et d’analyser, à ce
-          titre, possède de multiples compétences pour vous accompagner,
-          opérateurs publics ou privés, dans la réalisation de vos projets :
-          {'\n'}
-          {'\n'}- Conception des formulaires numérique {'\n'}- La mise en place
-          un système de collecte de données mobile devient de plus en plus aisé,
-          et de nombreux outils adaptés à tous vos besoins sont à votre
-          disposition - Collecter d'information plus diversifiée et produire des
-          résultats que vous pourrez analyser et partager en un instant.{'\n'} -
-          Etc
-          {'\n'}
-          <Text style={{fontSize: 20, fontWeight: 'bold'}}>Formation</Text>
-          {'\n'}
-          <Text style={{fontSize: 15, }}>Nous proposons une offre de formation SIG aux principaux logiciels
-          spécialisés en cartographie et SIG, en Géomatique de marché. Pour les
-          débutants comme les utilisateurs expérimentés quelques soit votre
-          domaine d’activité. Nous organisons des sessions et des évènements de
-          formation pour groupe ou individuelles dans nos locaux, vos locaux ou
-          en ligne. Notre originalité résidant également dans la mise en place
-          de formations personnalisées et adaptées à votre contexte métier La
-          formation sera articulée autour de 5 axes de travail:</Text>
-        </Text>
+      </View>
+      <View style={{
+        flex: 0.1,
+      }}>
+        <Image source={require('../assets/titre.png')} style={{ height: 190, width: 230, left: 40, resizeMode: 'cover',}}/>
+      </View>
+      <View style={{flex: 0.5,}}>
+        <Text style={{fontStyle: "normal", fontSize: 20, flex: 3, fontFamily: "Cochin", fontWeight: "bold", textDecorationLine: 'underline', textAlign: 'justify',}}>
+              Notre mission
+              {'\n'}
+          </Text>
+          <Text style={{flex: 1, fontSize: 18, fontStyle: "normal"}}>
+            Au sein de CARTOTCHAD nous faisons la promotion et vulgarisation de l’information géographique 
+            et la rendre accessible au grand public. Particulièrement, est de :{'\n'}
+          </Text>
+      <View style={ styles.row }>
+        <View style={ styles.bullet }>
+          <Text style={{fontSize: 15}}>{'\u2022' + " "}</Text>
+        </View>
+        <View style={ styles.bulletText }>
+          <Text style={styles.font}>Fournir aux utilisateurs des données cartographiques fiables et à jour</Text>
+        </View>
+      </View>
+      <View style={ styles.row }>
+        <View style={ styles.bullet }>
+          <Text style={{fontSize: 15}}>{'\u2022' + " "}</Text>
+        </View>
+        <View style={ styles.bulletText }>
+          <Text style={styles.font}>Offrez des produits et des services de qualité qui répondent aux besoins et aux attentes de nos clients afin d'obtenir une satisfaction globale des clients.</Text>
+        </View>
+      </View>
+
+      <View style={{
+        flex: 0.1,
+      }}>
+        <Image source={require('../assets/titre1.png')} style={{ height: 190, width: 230, left: 40, resizeMode: 'cover',}}/>
+      </View>
+
+          <Text style={{fontStyle: "normal", fontSize: 20, flex: 3, fontFamily: "Cochin", fontWeight: "bold", textDecorationLine: 'underline', textAlign: 'justify',}}>
+                  Nos Valeurs
+              {'\n'}
+          </Text>
+          <Text style={{flex: 1, fontSize: 18, fontStyle: "normal"}}>
+            Les valeurs de la plateforme CARTOTCHAD s’articule autour de :{'\n'}
+          </Text>
+
+        <View style={ styles.row }>
+          <View style={ styles.bullet }>
+            <Text style={styles.puces}>{'\u2022' + " "}</Text>
+          </View>
+          <View style={ styles.bulletText }>
+            <Text style={styles.font}>Professionnalisme ;</Text>
+          </View>
+      </View>
+
+      <View style={ styles.row }>
+        <View style={ styles.bullet }>
+          <Text style={styles.puces}>{'\u2022' + " "}</Text>
+        </View>
+        <View style={ styles.bulletText }>
+          <Text style={styles.font}>L’innovation ;</Text>
+        </View>
+      </View>
+
+      <View style={ styles.row }>
+          <View style={ styles.bullet }>
+            <Text style={styles.puces}>{'\u2022' + " "}</Text>
+          </View>
+          <View style={ styles.bulletText }>
+            <Text style={styles.font}>La Flexibilité ;</Text>
+          </View>
+      </View>
+
+      <View style={ styles.row }>
+        <View style={ styles.bullet }>
+          <Text style={styles.puces}>{'\u2022' + " "}</Text>
+        </View>
+        <View style={ styles.bulletText }>
+          <Text style={styles.font}>Travail d’équipe.</Text>
+        </View>
+      </View>
+
+      </View>
+        
       </ScrollView>
     );
   }
@@ -98,6 +116,36 @@ const styles = StyleSheet.create({
     color: 'red'
   },
   innerText: {
-    color: '#000'
+    flex: 1,
+    fontFamily: "Cochin",
+    fontSize: 19,
+    fontStyle: "normal",
+    textAlign: 'justify'
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    flexWrap: 'wrap',
+    flex: 1,
+    marginVertical: 4
+  },
+  bullet: {
+    width: 10
+  },
+  bulletText: {
+    flex: 1,
+    textAlign: 'justify',
+    fontStyle: "normal",
+    fontSize: 15,
+
+  },
+  font: {
+    fontSize: 15,
+    fontStyle: "normal",
+    textAlign: 'justify'
+  },
+  puces: {
+    fontSize: 15, 
+    fontStyle: "normal"
   }
 });
