@@ -16,7 +16,7 @@ const ApplicationNavigator = () => {
 
       <Stack.Screen
         options={{headerShown: false}}
-        name="Home"
+        name="ListScreen"
         component={AppNavigator}
       />
     </Stack.Navigator>

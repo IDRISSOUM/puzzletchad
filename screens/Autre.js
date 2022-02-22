@@ -71,7 +71,7 @@ class Autre extends Component {
             <Text style={styles.puces}>{'\u2022' + " "}</Text>
           </View>
           <View style={ styles.bulletText }>
-            <Text style={styles.font}>Professionnalisme ;</Text>
+            <Text style={styles.font}>Professionalisme ;</Text>
           </View>
       </View>
 

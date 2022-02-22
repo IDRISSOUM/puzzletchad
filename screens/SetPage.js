@@ -11,7 +11,7 @@ const getRemaining = (time) => {
     return { mins: formatNumber(mins), secs: formatNumber(secs) };
 }
 
-export default function Profil() {
+export default function setPage({navigation}) {
   const [remainingSecs, setRemainingSecs] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const { mins, secs } = getRemaining(remainingSecs);
@@ -42,15 +42,19 @@ export default function Profil() {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <Text style={styles.timerText}>{`${mins}:${secs}`}</Text>
-      <TouchableOpacity onPress={toggle} style={styles.button}>
-          <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Start'}</Text>
+      <TouchableOpacity onPress={() => {toggle();  navigation.navigate('imageTchad', {
+      })}} style={styles.button}>
+          <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Jouez'}</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={reset} style={[styles.button, styles.buttonReset]}>
           <Text style={[styles.buttonText, styles.buttonTextReset]}>Reset</Text>
       </TouchableOpacity>
     </View>
+    
   );
+  console.log(remainingSecs)
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -60,21 +64,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-      borderWidth: 10,
+      borderWidth: 4,
       borderColor: '#B9AAFF',
-      width: screen.width / 2,
-      height: screen.width / 2,
+      width: screen.width / 4,
+      height: screen.width / 4,
       borderRadius: screen.width / 2,
       alignItems: 'center',
       justifyContent: 'center'
   },
   buttonText: {
-      fontSize: 45,
-      color: '#B9AAFF'
+      fontSize: 20,
+      color: '#B9AAFF',
+      fontWeight: 'bold'
   },
   timerText: {
       color: '#fff',
-      fontSize: 90,
+      fontSize: 50,
       marginBottom: 20
   },
   buttonReset: {

@@ -2,6 +2,8 @@ import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
+import { NavigationContainer } from '@react-navigation/native';
 import Home from '../screens/Home';
 import Atlas from '../screens/Atlas';
 import Puzzle from '../screens/Puzzle';
@@ -10,7 +12,62 @@ import Autre from '../screens/Autre';
 import Real from '../screens/Real';
 import Site from '../screens/Site';
 import Location from '../screens/Location';
+import SetPage from '../screens/SetPage';
+import imageTchad from '../screens/imageTchad';
+import testModal from '../screens/testModal';
+import ListScreen from '../screens/ListScreen'
 
+const ListStack = createNativeStackNavigator();
+
+function ListStackScreen() {
+  return (
+    <ListStack.Navigator>
+    <ListStack.Screen 
+    name="Accueil" 
+    component={ListScreen} 
+    options={{
+      header: () => null,
+    }}
+    />
+    <ListStack.Screen 
+    name="Location" 
+    component={Location} 
+    options={{
+      header: () => null,
+    }}
+    />
+  </ListStack.Navigator>
+  );
+}
+
+const SetStack = createNativeStackNavigator();
+function SetStackScreen() {
+  return(
+  <SetStack.Navigator>
+    <SetStack.Screen 
+    name="Profil" 
+    component={SetPage} 
+    options={{
+      header: () => null,
+    }}
+    />
+    <SetStack.Screen 
+    name="testModal" 
+    component={testModal} 
+    options={{
+      header: () => null,
+    }}
+    />
+    <SetStack.Screen 
+    name="imageTchad" 
+    component={imageTchad} 
+    options={{
+      header: () => null,
+    }}
+    />
+  </SetStack.Navigator>
+  );
+}
 
 const HomeStack = createNativeStackNavigator();
 
@@ -22,8 +79,8 @@ function HomeStackScreen() {
       <HomeStack.Screen name="Real" component={Real} />
       <HomeStack.Screen name="Site" component={Site} />
       <HomeStack.Screen name="Atlas" component={Atlas} />
-      <HomeStack.Screen name="puzzle" component={Puzzle} />
-      <HomeStack.Screen name="Location" component={Location} />
+      <HomeStack.Screen name="SetPage" component={SetPage} />
+      {/* <HomeStack.Screen name="Location" component={Location} /> */}
     </HomeStack.Navigator>
   );
 }
@@ -36,12 +93,11 @@ export function AppNavigator() {
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={{
-        // tabBarActiveTintColor: '#e91e63',
       }}
     >
       <Tab.Screen
         name="Feed"
-        component={Home}
+        component={ListStackScreen}
         options={{
           header: () => null,
           tabBarLabel: 'Home',
@@ -62,8 +118,8 @@ export function AppNavigator() {
         }}
       />
       <Tab.Screen
-        name="Puzzle"
-        component={Puzzle}
+        name="SetPage"
+        component={SetStackScreen}
         options={{
           header: () => null,
           tabBarLabel: 'Puzzle',

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet  } from 'react-native';
 import { AntDesign } from 'react-native-vector-icons/AntDesign';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { SPACING } from '../config/theme';
+import { tutorial2Spec } from '../config/theme';
+const { ITEM_WIDTH, ITEM_HEIGHT, RADIUS, SPACING, FULL_SIZE } = tutorial2Spec;
 
 const data =  [
     {
@@ -50,11 +51,49 @@ const data =  [
 ]
 
 
-const Location = ({navigation, route}) => {
+// export default function Location({navigation, route}) {
+//     console.log('gcghchchhv')
+//     const { item } = route.params;
+//     console.log(route.params)
+//   return (
+//            <View style={{flex: 1}}> 
+//           {/* <AntDesign 
+//             name="arrowleft"
+//             size={24}
+//             color={'#333'}
+//             style={{
+//                 paddingHorizontal: SPACING,
+//                 position: 'absolute',
+//                 top: 50,
+//                 left: 10,
+//                 zIndex: 2
+
+//             }}
+//             onPress={navigation.goBack}
+//           /> */}
+//           <View style={[StyleSheet.absoluteFillObject]}>
+//               <Image 
+//                 source={{ uri: item.image}}
+//                 style={[ StyleSheet.absoluteFillObject,
+//                 {
+//                     resizeMode: 'cover'
+//                 }
+//                 ]}
+//               />
+
+//           </View>
+//       </View>
+//   )
+// }
+
+
+
+export default function Location({navigation, route}) {
     const { item } = route.params;
+    console.log('gcghchchhv')
     return(
       <SafeAreaView style={{flex: 1}}> 
-          <AntDesign 
+          {/* <AntDesign 
             name="arrowleft"
             size={24}
             color={'#333'}
@@ -67,7 +106,7 @@ const Location = ({navigation, route}) => {
 
             }}
             onPress={navigation.goBack}
-          />
+          /> */}
           <View style={[StyleSheet.absoluteFillObject]}>
               <Image 
                 source={{ uri: item.image}}
@@ -79,14 +118,25 @@ const Location = ({navigation, route}) => {
               />
 
           </View>
+           <Text style={[styles.location]}>{item.location}</Text>
       </SafeAreaView>
     );
     
   }
-  export default Location;
 
 const styles = StyleSheet.create({
 container: {
     
+},
+location: {
+  fontSize: 30,
+  color: '#fff',
+  fontWeight: '800',
+  width: ITEM_WIDTH * 0.8,
+  textTransform: 'uppercase',
+  position: 'absolute',
+  top: 100,
+  left: SPACING,
+
 },
 });

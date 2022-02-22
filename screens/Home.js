@@ -8,8 +8,6 @@ const { width, height } = Dimensions.get('screen');
 const ITEM_WIDTH = width * 0.76;
 const ITEM_HEIGHT = ITEM_WIDTH * 1.47;
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
-// const sliderWidth = Dimensions.get('window').width;
-// const itemHeight = Dimensions.get('window').height;
 
 
 const images = [
@@ -54,7 +52,7 @@ export default class Accueil extends Component {
               renderItem={({item, index}) => {
               return(
               <View style={{ width, justifyContent: 'center', alignItems: 'center'  }}>
-               <View style={{  
+               {/* <View style={{  
                  borderRadius: 18,
                  borderColor: 'white',
                  shadowColor: '#000',
@@ -87,7 +85,7 @@ export default class Accueil extends Component {
                   resizeMode: 'cover'}}
                 />
                </View>
-               </View>
+               </View> */}
                
           </View>  
                     
@@ -96,7 +94,7 @@ export default class Accueil extends Component {
         />        
       </View>
           
-          <View style={{ 
+          {/* <View style={{ 
             flex: 0.36, 
             backgroundColor: '#22427CFF' 
             
@@ -156,7 +154,7 @@ export default class Accueil extends Component {
                     backgroundColor: '#FFFFFF',
                     
                   }}
-                  onPress={() => this.props.navigation.navigate('Puzzle')}>
+                  onPress={() => this.props.navigation.navigate('SetPage')}>
                   <Text
                     // eslint-disable-next-line react-native/no-inline-styles
                     style={{
@@ -171,7 +169,7 @@ export default class Accueil extends Component {
                 </TouchableOpacity>
               </View>
 
-          </View>
+          </View> */}
            
            </View>
           

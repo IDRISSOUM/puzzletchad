@@ -90,7 +90,7 @@ class Tempo extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-      this.props.navigation.navigate('Home');
+      this.props.navigation.navigate('ListScreen');
     }, 2000);
   }
 }
