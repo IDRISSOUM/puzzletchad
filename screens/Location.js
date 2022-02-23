@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet  } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, FlatList  } from 'react-native';
 import { AntDesign } from 'react-native-vector-icons/AntDesign';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { tutorial2Spec } from '../config/theme';
 const { ITEM_WIDTH, ITEM_HEIGHT, RADIUS, SPACING, FULL_SIZE } = tutorial2Spec;
+import { SharedElement } from 'react-navigation-shared-element';
+import { Button, Provider, Toast } from '@ant-design/react-native';
+import * as Animatable from 'react-native-animatable';
 
 const data =  [
     {
@@ -92,7 +95,8 @@ export default function Location({navigation, route}) {
     const { item } = route.params;
     console.log('gcghchchhv')
     return(
-      <SafeAreaView style={{flex: 1}}> 
+      <SafeAreaView style={{flex: 1}}>
+        <Button title="Retour" onPress={() => navigation.navigate('ListScreen')} />
           {/* <AntDesign 
             name="arrowleft"
             size={24}
@@ -107,6 +111,9 @@ export default function Location({navigation, route}) {
             }}
             onPress={navigation.goBack}
           /> */}
+          <SharedElement id={`item.${item.key}.photo`} style={[
+                                StyleSheet.absoluteFillObject,
+                            ]}>
           <View style={[StyleSheet.absoluteFillObject]}>
               <Image 
                 source={{ uri: item.image}}
@@ -118,9 +125,46 @@ export default function Location({navigation, route}) {
               />
 
           </View>
-           <Text style={[styles.location]}>{item.location}</Text>
+          </SharedElement>
+          <SharedElement id={`item.${item.key}.location`} >
+            <Text style={[styles.location]}>{item.location}</Text>
+          </SharedElement>
+          <View style={{
+              position: 'absolute', 
+              bottom: 120, 
+              left: SPACING, 
+              right: SPACING,
+              backgroundColor: 'blue'
+              }}>
+            <Text style={[styles.location, 
+                {
+                    fontSize: 16, 
+                    width: '100%', 
+                    textTransform: 'uppercase',
+                    fontWeight: '800',
+                    color: '#fff',
+                    marginHorizontal: SPACING,
+                    }]}>
+                Activites
+            </Text>
+            <FlatList
+                data={[...Array(8).keys()]}
+                keyExtractor={item => String(item)}
+                renderItem={({item}) => {
+                    return <View>
+                    <Image source={{uri: 'https://miro.medium.com/max/124/1*qYUvh-EtES8dtgKiBRiLsA.png'}}
+                    style={{width: '100%', height: '70%', resizeMode: 'cover'}} />
+                    </View>
+                },
+                console.log(data)}
+                
+            />
+            
+            <Text>Activity #{item + 1}</Text>
+          </View>
       </SafeAreaView>
     );
+    
     
   }
 
@@ -136,7 +180,19 @@ location: {
   textTransform: 'uppercase',
   position: 'absolute',
   top: 100,
-  left: SPACING,
+  left: SPACING * 2,
 
 },
 });
+
+Location.SharedElement = (route, otherRoute, showing) => {
+    const {item} = route.params;
+
+    return [{
+        id: `item.${item.key}.photo`,
+    },
+    {
+        id: `item.${item.key}.location`,
+    }
+    ]
+}

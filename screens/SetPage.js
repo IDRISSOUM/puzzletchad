@@ -23,10 +23,11 @@ export default function setPage({navigation}) {
   const reset = () => {
     setRemainingSecs(0);
     setIsActive(false);
+    
   }
 
+let interval = null;
   useEffect(() => {
-    let interval = null;
     if (isActive) {
       interval = setInterval(() => {
         setRemainingSecs(remainingSecs => remainingSecs + 1);
@@ -37,6 +38,10 @@ export default function setPage({navigation}) {
     return () => clearInterval(interval);
   }, [isActive, remainingSecs]);
 
+if (interval >= 10){
+      return <View><Text>Temps out</Text></View>
+    }
+    console.log(interval)
 
   return (
     <View style={styles.container}>

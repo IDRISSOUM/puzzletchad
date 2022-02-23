@@ -27,6 +27,14 @@ const Data = [
   //   id: 6,
   //   first_name: 'Kiwi',
   // },
+  // {
+  //   id: 7,
+  //   first_name: 'Banana',
+  // },
+  // {
+  //   id: 8,
+  //   first_name: 'Kiwi',
+  // },
 
 
 ];
@@ -53,13 +61,15 @@ export default class App extends Component {
 
         data.selected = (data.selected == null) ? true : !data.selected; // making button selcted or not using boolen
 
-        if (data.selected) {
+        if (data.selected) {        
           selectedFruits.push(data.first_name);  // push selected fruit value to array
         } else {
           selectedFruits = this.arrayRemove(this.state.selectedFruits, data.first_name)  // remove unselected fruit from array
         }
         break;
       }
+      // console.log(renderData.length)
+      console.log(selectedFruits.length)
     }
 
     this.setState({ renderData });  // updating current selected button data to state
@@ -82,9 +92,12 @@ export default class App extends Component {
         <View style={styles.listContainer}>
           <Text style={styles.titleStyle}>Select fruits</Text>
           <View style={styles.FlatListContainer}>
-            <FlatList showsHorizontalScrollIndicator={true}
+            <FlatList
               data={this.state.renderData} // set render data in flatlist
-
+              numColumns={2} 
+              columnWrapperStyle={styles.row}
+              // horizontal
+              // showsHorizontalScrollIndicator={false}
               keyExtractor={item => item.id.toString()} // keyExtractor convert INT  'item.id' value to string 
               renderItem={({ item }) =>
 
@@ -95,7 +108,7 @@ export default class App extends Component {
                     item.selected == true
                       // style when button is selected
                       ? {
-                        margin: 5, borderRadius: 2,backgroundColor: '#e1601f',
+                        margin: 5, borderRadius: 10,backgroundColor: '#e1601f',
                       }
                       // style when button is unSelected
                       : {
@@ -109,7 +122,7 @@ export default class App extends Component {
               } />
           </View>
           <View>
-          <Text >{this.state.selectedFruits}  </Text>
+          <Text >{this.state.selectedFruits}</Text>
           </View>
         </View>
       </View>
@@ -118,7 +131,7 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  container1: {
     flex: 1,
     justifyContent: 'center',
     alignItems: "center",
@@ -145,6 +158,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'column',
   },
+  row: {
+    flex: 1,
+    justifyContent: "space-around"
+  }
 });
 
 // import React from 'react';

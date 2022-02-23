@@ -606,6 +606,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     flex: 1,
+    width: '50%'
     },
   image0: {
     resizeMode: 'contain',

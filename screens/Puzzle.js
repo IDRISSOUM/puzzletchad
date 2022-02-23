@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Dimensions, TouchableOpacity, Image} from 'react-native';
+import {StyleSheet, View, Text, Dimensions, TouchableOpacity, Image, FlatList} from 'react-native';
 export const { width, height} = Dimensions.get('window');
 import {
   responsiveScreenHeight,
@@ -13,87 +13,88 @@ class Profil extends Component {
     super(props);
     this.state = {
       count: 0,
+      selectedFruits: [],
       images: [
         {
-          id: "0",
+          id: 0,
           region: '../assets2/0.png',
-          ville: "Tiberti"
+          ville: 'Tiberti'
           },
           {
-          id: "1",
+          id: 1,
           region: '../assets2/1.png',
-          ville: "Borkou"
+          ville: 'Borkou'
           },
           {
-          id: "2",
+          id: 2,
           region: '../assets2/2.png',
-          ville: "Ennedi-Ouest"
+          ville: 'Ennedi-Ouest'
           },
           {
-          id: "3",
+          id: 3,
           region: '../assets2/3.png',
-          ville: "Ennedi-Est"
+          ville: 'Ennedi-Est'
           },
           {
-          id: "4",
+          id: 4,
           region: '../assets2/4.png',
-          ville: "Kanem"
+          ville: 'Kanem'
           },
           {
-          id: "5",
+          id: 5,
           region: '../assets2/5.png',
-          ville: "Barh El Gazel"
+          ville: 'Barh El Gazel'
           },
           {
-          id: "6",
+          id: 6,
           region: '../assets2/6.png',
-          ville: "Bartha"
+          ville: 'Bartha'
           },
           {
-          id: "7",
+          id: 7,
           region: '../assets2/7.png',
-          ville: "Ouaddaï"
+          ville: 'Ouaddaï'
           },
           {
-          id: "8",
+          id: 8,
           region: '../assets2/8.png',
-          ville: "Lac"
+          ville: 'Lac'
           },
           {
-          id: "9",
+          id: 9,
           region:'../assets2/9.png',
-          ville: "Hadjer-Lamis"
+          ville: 'Hadjer-Lamis'
           },
         
           {
-          id: "10",
+          id: 10,
           region: '../assets2/10.png',
-          ville: "Tiberti"
+          ville: 'Djamena'
           },
           {
-          id: "11",
+          id: 11,
           region: '../assets2/12.png',
-          ville: "Guéra"
+          ville: 'Guéra'
           },
           {
-          id: "12",
+          id: 12,
           region: '../assets2/13.png',
-          ville: "Sila"
+          ville: 'Sila'
           },
           {
-          id: "13",
+          id: 13,
           region: '../assets2/14.png',
-          ville: "Chari-Baguirmi"
+          ville: 'Chari-Baguirmi'
           },
           {
-          id: "14",
+          id: 14,
           region: '../assets2/15.png',
-          ville: "Moyen-Chari"
+          ville: 'Moyen-Chari'
           },
           {
-          id: "15",
+          id: 15,
           region: '../assets2/16.png',
-          ville: "Salamat"
+          ville: 'Salamat'
           },
         ],
         image0: require('../assets2/0.png'),
@@ -126,7 +127,39 @@ class Profil extends Component {
     
   }
 
+onPressHandler(id) {
+    let images = [...this.state.images];           // making copy of renderData data locally
+    let selectedFruits = [...this.state.selectedFruits];   // making copy of selectedFruits data locally
 
+    for (let data of images) {
+      if (data.id == id) {
+
+        data.selected = (data.selected == null) ? true : !data.selected; // making button selcted or not using boolen
+
+        if (data.selected) {        
+          selectedFruits.push(data.ville);  // push selected fruit value to array
+        } else {
+          selectedFruits = this.arrayRemove(this.state.selectedFruits, data.ville)  // remove unselected fruit from array
+        }
+        break;
+      }
+      // console.log(renderData.length)
+      console.log(selectedFruits.length)
+    }
+
+    this.setState({ images });  // updating current selected button data to state
+    this.setState({ selectedFruits });  // updating current selected Fruits data to state
+  }
+
+
+  // function which remove value from array and return  
+  arrayRemove(arr, value) {
+
+    return arr.filter(function (geeks) {
+      return geeks != value;
+
+    });
+  }
 
   getData(){
     this.state.images.map((item, key) => {
@@ -140,26 +173,9 @@ class Profil extends Component {
    
  }
  
-_onClick = () => {
-  return this.state.images.map((element, key) => {
-    return (
-      <View >
-        <Text>{element.id}</Text>
-      </View>
-    );
-  });
-}
-
-_genButtonResponse = () => {
-  
-    
-}
 
 componentDidMount(){
   this.getData();
-  // console.log(element.id)
-  // console.log(element.name)
-  // console.log(element.response)
   
 }
  
@@ -422,8 +438,34 @@ componentWillUnmount() {
          </View>
           </View>
           <View style={styles.bottom}>
-              {this._onClick()}
-          </View>
+            <View style={styles.FlatListContainer}>
+              <FlatList
+                data={this.state.images} // set render data in flatlist
+                numColumns={2} 
+                columnWrapperStyle={styles.row}
+                keyExtractor={item => item.id.toString()} // keyExtractor convert INT  'item.id' value to string 
+                renderItem={({ item }) =>
+                  <TouchableOpacity
+                    color={item.selected == true ? '#ffffff' : '#e1601f'} // color of TouchableOpacity will change according to selection
+
+                    style={
+                      item.selected == true
+                        // style when button is selected
+                        ? {
+                          margin: 5, borderRadius: 5,backgroundColor: '#e1601f',
+                        }
+                        // style when button is unSelected
+                        : {
+                          margin: 5, borderRadius: 2, backgroundColor: '#e1601f',
+                        }
+                    }
+                    // onPress will call the function when button is clicked
+                    onPress={() => this.onPressHandler(item.id)}><Text>{item.ville}</Text>
+                  </TouchableOpacity>
+
+                } />
+            </View>
+        </View>
       </View>
     );
   }
@@ -448,16 +490,20 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     borderWidth: 2,
     flexDirection: "row",
-    // justifyContent: "center",
-    // alignItems: "center"
   },
   bottom: {
     flex: 1,
-    flexDirection: "row",
+    // flexDirection: "row",
     borderWidth: 0,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
+  // container1: {
+  //   flex: 5,
+  //   justifyContent: 'center',
+  //   alignItems: "center",
+  //   flexDirection: "row"
+  // },
   image0: {
     resizeMode: 'contain',
     height: 192.46,
@@ -573,6 +619,23 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         height: 51.26,
         width: 59.8,
+      },
+      FlatListContainer: {
+      width:"100%",
+      height: 500,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1
+      },
+      listContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+      },
+      row: {
+        flex: 1,
+        justifyContent: "space-around"
       }
 });
 

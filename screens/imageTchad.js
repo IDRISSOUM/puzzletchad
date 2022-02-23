@@ -26,8 +26,8 @@ render() {
 
   getData(){
     setTimeout(() => {
-        this.props.navigation.navigate('testModal');
-    }, 100);
+        this.props.navigation.navigate('Puzzle');
+    }, 500);
    
  }
  

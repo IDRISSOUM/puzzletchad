@@ -52,8 +52,8 @@ function SetStackScreen() {
     }}
     />
     <SetStack.Screen 
-    name="testModal" 
-    component={testModal} 
+    name="Puzzle" 
+    component={Puzzle} 
     options={{
       header: () => null,
     }}

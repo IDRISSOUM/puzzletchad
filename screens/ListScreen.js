@@ -8,6 +8,7 @@ const { ITEM_WIDTH, ITEM_HEIGHT, RADIUS, SPACING, FULL_SIZE } = tutorial2Spec;
 import { StatusBar } from 'expo-status-bar';
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 const { width, height } = Dimensions.get('screen');
+import { SharedElement } from 'react-navigation-shared-element';
 
 const data =  [
   {
@@ -91,19 +92,25 @@ const data =  [
                         height: ITEM_HEIGHT ,
                         overflow: 'hidden',
                         alignItems: 'center',
-                        borderRadius: 13,
+                        borderRadius: RADIUS,
                 
                     }}>
                     <TouchableOpacity onPress={() => {
                         navigation.push('Location', {item});
-                    }} style={ styles.itemContainer }>                       
-                        <Image source={{ uri: item.image }} 
-                        style={[
-                            StyleSheet.absoluteFillObject,
-                        ]}
+                    }} style={ styles.itemContainer }>
+                        <SharedElement id={`item.${item.key}.photo`} style={[
+                                StyleSheet.absoluteFillObject,
+                            ]}>
+                            <Image source={{ uri: item.image }} 
+                            style={[
+                                StyleSheet.absoluteFillObject,
+                            ]}
                         />
-                        <Text style={[styles.location]}
-                            >{item.location}</Text>
+                        </SharedElement>
+                        <SharedElement id={`item.${item.key}.location`} >
+                            <Text style={[styles.location]}
+                                >{item.location}</Text>
+                        </SharedElement>          
                             <View style={styles.days}>
                             <Text style={styles.daysValue}>{item.numberOfDays}</Text>
                             <Text style={styles.daysLabel}>days</Text>
@@ -220,9 +227,8 @@ location: {
   width: ITEM_WIDTH * 0.8,
   textTransform: 'uppercase',
   position: 'absolute',
-  top: SPACING,
-  bottom: SPACING,
-  left: SPACING,
+  top: SPACING * 2,
+  left: SPACING * 2,
 
 },
 days: {
