@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { View, Image, StyleSheet, ScrollView, RefreshControl } from 'react-native';
+import SetPage from '../screens/SetPage'
 
 
 
@@ -27,7 +28,7 @@ render() {
   getData(){
     setTimeout(() => {
         this.props.navigation.navigate('Puzzle');
-    }, 500);
+    }, 5000);
    
  }
  

@@ -3,6 +3,8 @@ import MapView from 'react-native-maps';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Alert, useWindowDimensions } from 'react-native';
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
+const { ITEM_WIDTH, ITEM_HEIGHT, RADIUS, SPACING, FULL_SIZE } = tutorial2Spec;
+import { tutorial2Spec } from '../config/theme';
 
 
 export default class Atlas extends Component {
@@ -382,8 +384,8 @@ componentWillUnmount() {
         </View>
 
         <View style={{
-          left: -247.3,
-          bottom: -139
+          left: -249,
+          bottom: -136
           }}>
           <TouchableOpacity
             onPress={this.createTwoButtonAlert} >
@@ -606,7 +608,9 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     flex: 1,
-    width: '50%'
+    // width: ITEM_WIDTH ,
+    // height: ITEM_HEIGHT,
+    backgroundColor: 'red' 
     },
   image0: {
     resizeMode: 'contain',

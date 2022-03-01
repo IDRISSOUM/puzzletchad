@@ -11,7 +11,7 @@ import Apropos from '../screens/Apropos';
 import Autre from '../screens/Autre';
 import Real from '../screens/Real';
 import Site from '../screens/Site';
-import Location from '../screens/Location';
+import ListScreenDetails from '../screens/ListScreenDetails';
 import SetPage from '../screens/SetPage';
 import imageTchad from '../screens/imageTchad';
 import testModal from '../screens/testModal';
@@ -30,8 +30,8 @@ function ListStackScreen() {
     }}
     />
     <ListStack.Screen 
-    name="Location" 
-    component={Location} 
+    name="ListScreenDetails" 
+    component={ListScreenDetails} 
     options={{
       header: () => null,
     }}
@@ -74,7 +74,13 @@ const HomeStack = createNativeStackNavigator();
 function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen name="A propos" component={Apropos} />
+      <HomeStack.Screen 
+      name="A propos" 
+      component={Apropos} 
+      options={{
+        header: () => null,
+      }}
+      />
       <HomeStack.Screen name="Autre" component={Autre} />
       <HomeStack.Screen name="Real" component={Real} />
       <HomeStack.Screen name="Site" component={Site} />

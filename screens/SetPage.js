@@ -8,26 +8,41 @@ const formatNumber = number => `0${number}`.slice(-2);
 const getRemaining = (time) => {
     const mins = Math.floor(time / 60);
     const secs = time - mins * 60;
-    return { mins: formatNumber(mins), secs: formatNumber(secs) };
+    const timeout = secs
+    return { mins: formatNumber(mins), secs: formatNumber(secs),  timeout: formatNumber(timeout)};
 }
 
 export default function setPage({navigation}) {
   const [remainingSecs, setRemainingSecs] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  const { mins, secs } = getRemaining(remainingSecs);
+  const { mins, secs, timeout } = getRemaining(remainingSecs);
+  const [timer, setTimer] = useState(false);
 
   const toggle = () => {
     setIsActive(!isActive);
   }
 
+  console.log(remainingSecs)
+  console.log("Vous avez depassé le temps: ", timeout)
+
   const reset = () => {
     setRemainingSecs(0);
     setIsActive(false);
+    setTime()
     
   }
 
-let interval = null;
+  const setTime = () => {
+    if (timeout === 20){
+      setRemainingSecs(0);
+      setIsActive(false);
+      console.log("bon debut")
+    }
+
+  }
+
   useEffect(() => {
+    let interval = null;
     if (isActive) {
       interval = setInterval(() => {
         setRemainingSecs(remainingSecs => remainingSecs + 1);
@@ -38,16 +53,12 @@ let interval = null;
     return () => clearInterval(interval);
   }, [isActive, remainingSecs]);
 
-if (interval >= 10){
-      return <View><Text>Temps out</Text></View>
-    }
-    console.log(interval)
-
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <Text style={styles.timerText}>{`${mins}:${secs}`}</Text>
       <TouchableOpacity onPress={() => {toggle();  navigation.navigate('imageTchad', {
+       remainingSecs
       })}} style={styles.button}>
           <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Jouez'}</Text>
       </TouchableOpacity>
@@ -57,20 +68,19 @@ if (interval >= 10){
     </View>
     
   );
-  console.log(remainingSecs)
 }
 
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#07121B',
+    backgroundColor: '#22427CFF',
     alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
       borderWidth: 4,
-      borderColor: '#B9AAFF',
+      borderColor: '#b71c1c',
       width: screen.width / 4,
       height: screen.width / 4,
       borderRadius: screen.width / 2,
@@ -79,7 +89,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
       fontSize: 20,
-      color: '#B9AAFF',
+      color: '#b71c1c',
       fontWeight: 'bold'
   },
   timerText: {
@@ -89,10 +99,10 @@ const styles = StyleSheet.create({
   },
   buttonReset: {
       marginTop: 20,
-      borderColor: "#FF851B"
+      borderColor: "#ffc107"
   },
   buttonTextReset: {
-    color: "#FF851B"
+    color: "#ffc107"
   }
 });
 

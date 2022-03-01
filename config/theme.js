@@ -13,3 +13,28 @@ export const tutorial2Spec = {
     SPACING,
     FULL_SIZE: s * SPACING * 2,
 };
+
+export const foodConfig = {
+    colors: {
+      orange: '#FB9B06',
+    },
+  };
+  
+  export const fonts = {
+    montserratRegular: {
+      fontFamily: 'Montserrat_400Regular',
+    },
+    montserratBold: {
+      fontFamily: 'Montserrat_700Bold',
+    },
+    sourceSansProBold: {
+      fontFamily: 'SourceSansPro_700Bold',
+    },
+    playfairDisplayRegular: {
+      fontFamily: 'PlayfairDisplay_400Regular',
+    },
+    playfairDisplayMedium: {
+      fontFamily: 'PlayfairDisplay_500Medium',
+    },
+  };
+  

@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, Dimensions, TouchableOpacity, Image, FlatList} from 'react-native';
 export const { width, height} = Dimensions.get('window');
-import {
-  responsiveScreenHeight,
-  responsiveScreenWidth,
-  responsiveScreenFontSize
-} from "react-native-responsive-dimensions";
-import SetPage from '../screens/SetPage'
 
 class Profil extends Component {
   constructor(props) {
@@ -14,6 +8,7 @@ class Profil extends Component {
     this.state = {
       count: 0,
       selectedFruits: [],
+      is_Active: null,
       images: [
         {
           id: 0,
@@ -123,8 +118,8 @@ class Profil extends Component {
         image21: require('../assets2/21.png'),
         image22: require('../assets2/22.png'),   
         
-    }
-    
+    } 
+   
   }
 
 onPressHandler(id) {
@@ -445,29 +440,50 @@ componentWillUnmount() {
                 columnWrapperStyle={styles.row}
                 keyExtractor={item => item.id.toString()} // keyExtractor convert INT  'item.id' value to string 
                 renderItem={({ item }) =>
-                  <TouchableOpacity
-                    color={item.selected == true ? '#ffffff' : '#e1601f'} // color of TouchableOpacity will change according to selection
+                  <TouchableOpacity  color={item.selected == true ? '#e1601f' : '#ffffff'} //  color of TouchableOpacity will change according to selection
 
                     style={
                       item.selected == true
                         // style when button is selected
                         ? {
-                          margin: 5, borderRadius: 5,backgroundColor: '#e1601f',
+                          margin: 5, 
+                          borderRadius: 5, 
+                          backgroundColor: '#e1601f',
+                          justifyContent: 'center',
+                          borderRadius: 30,
+                          shadowOpacity: 0.29,
+                          shadowRadius: 4.65,
+                          elevation: 2,
+                          padding: 10,
+                          width: 150,
+                          height: 50,
+                          // backgroundColor: '#FFFFFF',
                         }
                         // style when button is unSelected
                         : {
-                          margin: 5, borderRadius: 2, backgroundColor: '#e1601f',
+                          margin: 5, 
+                          borderRadius: 2, 
+                          // backgroundColor: '#e1601f',
+                          justifyContent: 'center',
+                          borderRadius: 30,
+                          shadowOpacity: 0.29,
+                          shadowRadius: 4.65,
+                          elevation: 2,
+                          padding: 10,
+                          width: 150,
+                          height: 50,
+                          // backgroundColor: '#FFFFFF',
                         }
                     }
                     // onPress will call the function when button is clicked
-                    onPress={() => this.onPressHandler(item.id)}><Text>{item.ville}</Text>
+                    onPress={() => this.onPressHandler(item.id)}><Text style={styles.custom}>{item.ville}</Text>
                   </TouchableOpacity>
-
                 } />
             </View>
         </View>
       </View>
     );
+    console.log(item.id) 
   }
 }
 
@@ -497,6 +513,8 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
+    paddingBottom: 8,
+    marginTop: 2
   },
   // container1: {
   //   flex: 5,
@@ -626,7 +644,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      flex: 1
+      flex: 1,
       },
       listContainer: {
         alignItems: 'center',
@@ -635,7 +653,14 @@ const styles = StyleSheet.create({
       },
       row: {
         flex: 1,
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        
+      },
+      custom: {
+        color: '#000000',
+        fontFamily: 'Roboto',
+        fontSize: 15,
+        textAlign: 'center',
       }
 });
 
