@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, Dimensions, TouchableOpacity, Image, FlatList} from 'react-native';
-export const { width, height} = Dimensions.get('window');
+// export const { width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('screen');
 
-class Profil extends Component {
+class Profile2 extends Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -122,6 +124,18 @@ class Profil extends Component {
    
   }
 
+// changeImageColor() {
+//   let images = [...this.state.images];
+//   for (let i of images) {
+//    console.log('ifiefyeoiyfoifyoiqhfoq',i.region);
+//    if(i){
+//      var im = Math.floor(Math.random() * i.region.length)
+
+//      console.log('jhuewwufguiwe',im);
+//    }
+//   }
+// }
+
 onPressHandler(id) {
     let images = [...this.state.images];           // making copy of renderData data locally
     let selectedFruits = [...this.state.selectedFruits];   // making copy of selectedFruits data locally
@@ -157,29 +171,37 @@ onPressHandler(id) {
   }
 
   getData(){
-    this.state.images.map((item, key) => {
-     setTimeout(() => {
-       this.setState({
-         [item.id]:item.name
-        
+    this._isMounted = true;
+    if(this._isMounted){
+      this.state.images.map((item, key) => {
+        setTimeout(() => {
+          this.setState({
+            [item.id]:item.name
+           
+          })
+        }, 5000)
        })
-     }, 5000)
-    })
-   
+      
+
+    }
+    
  }
  
 
 componentDidMount(){
-  this.getData();
-  
+    this.getData();
 }
  
 componentWillUnmount() {
-  this.getData();
+  this._isMounted = false;
+  // this.getData();
+  
   
 }
 
   render() {
+    // const { navigation, route } = this.props;
+    // console.log('ggggggggg', route.params)    
     return (
       <View style={styles.container}>
         <View style={styles.top}><Text style={{flexDirection: 'row-reverse'}}></Text></View>
@@ -430,7 +452,7 @@ componentWillUnmount() {
             onPress={this.createTwoButtonAlert} >
               <Image source={this.state.image22} style={styles.image22} />
           </TouchableOpacity>
-         </View>
+        </View>
           </View>
           <View style={styles.bottom}>
             <View style={styles.FlatListContainer}>
@@ -493,11 +515,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     backgroundColor: "#fff",
-    padding: 0,
-    margin: 10,
+    // padding: 0,
+    // margin: 10,
+    width: width,
+    height: height
   },
   top: {
     flex: 0.5,
+    width: width,
+    height: height
     // backgroundColor: "white",
     // borderWidth: 2,
   },
@@ -506,6 +532,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     borderWidth: 2,
     flexDirection: "row",
+    // width: width,
+    // height: height
   },
   bottom: {
     flex: 1,
@@ -514,7 +542,9 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     paddingBottom: 8,
-    marginTop: 2
+    marginTop: 2,
+    width: width,
+    height: height
   },
   // container1: {
   //   flex: 5,
@@ -664,4 +694,4 @@ const styles = StyleSheet.create({
       }
 });
 
-export default Profil;
+export default Profile2;

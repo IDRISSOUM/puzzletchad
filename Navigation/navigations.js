@@ -15,7 +15,8 @@ import ListScreenDetails from '../screens/ListScreenDetails';
 import SetPage from '../screens/SetPage';
 import imageTchad from '../screens/imageTchad';
 import testModal from '../screens/testModal';
-import ListScreen from '../screens/ListScreen'
+import ListScreen from '../screens/ListScreen';
+import testVrai from '../screens/testVrai';
 
 const ListStack = createNativeStackNavigator();
 
@@ -45,7 +46,7 @@ function SetStackScreen() {
   return(
   <SetStack.Navigator>
     <SetStack.Screen 
-    name="Profil" 
+    name="SetPage" 
     component={SetPage} 
     options={{
       header: () => null,
@@ -65,6 +66,14 @@ function SetStackScreen() {
       header: () => null,
     }}
     />
+    <SetStack.Screen  
+    name="testVrai" 
+    component={testVrai} 
+    options={{
+      header: () => null,
+    }}
+    />
+   
   </SetStack.Navigator>
   );
 }
@@ -78,15 +87,38 @@ function HomeStackScreen() {
       name="A propos" 
       component={Apropos} 
       options={{
-        header: () => null,
+        headerStyle: {
+          backgroundColor: '#f4511e',
+          flexDirection: 'row-reverse',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          
+
+        },
+        // header: () => null,
       }}
       />
-      <HomeStack.Screen name="Autre" component={Autre} />
+      <HomeStack.Screen 
+      name="Autre" 
+      component={Autre} 
+      options={{
+        headerStyle: {
+          backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+
+        },
+        // header: () => null,
+      }}
+      />
       <HomeStack.Screen name="Real" component={Real} />
       <HomeStack.Screen name="Site" component={Site} />
       <HomeStack.Screen name="Atlas" component={Atlas} />
-      <HomeStack.Screen name="SetPage" component={SetPage} />
-      {/* <HomeStack.Screen name="Location" component={Location} /> */}
+      
     </HomeStack.Navigator>
   );
 }

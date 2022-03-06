@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import MapView from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Alert, useWindowDimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Alert, PixelRatio } from 'react-native';
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
+const { width, height } = Dimensions.get('screen');
 const { ITEM_WIDTH, ITEM_HEIGHT, RADIUS, SPACING, FULL_SIZE } = tutorial2Spec;
 import { tutorial2Spec } from '../config/theme';
 
@@ -356,6 +357,7 @@ componentWillUnmount() {
         style={{
           right: -7,
           bottom: -3,
+         
         }}
         >
         <TouchableOpacity onPress={this.region0Alert} >
@@ -365,7 +367,8 @@ componentWillUnmount() {
 
         <View style={{
           top: 65,
-          left: -151.8, 
+          left: -151.8,
+          
           }}>
         <TouchableOpacity onPress={this.region1Alert}>
             <Image source={this.state.image1} style={styles.image1}/>
@@ -608,9 +611,11 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     flex: 1,
-    // width: ITEM_WIDTH ,
-    // height: ITEM_HEIGHT,
-    backgroundColor: 'red' 
+    backgroundColor: 'red',
+    width: width,
+    height: height
+    // width: PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').width),
+    // height: PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').height)/100
     },
   image0: {
     resizeMode: 'contain',

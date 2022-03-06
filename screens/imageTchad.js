@@ -1,20 +1,46 @@
 
 import React, { Component } from 'react';
 import { View, Image, StyleSheet, ScrollView, RefreshControl } from 'react-native';
-import SetPage from '../screens/SetPage'
 
 
 
 class SetImage extends Component {
+  _isMounted = false;
     constructor(props) {
         super(props);
         this.state = {
             refreshing: false,
+            
         }
     }
+//  Data = this.props.params.remainingSecs;
+getData(){
+  setTimeout(() => {
+      this.props.navigation.navigate('Puzzle');
+  }, 5000);
+ 
+}
+
+componentDidMount(){
+  this._isMounted = true;
+  if (this._isMounted){
+    this.getData();
+  }
+}
+
+componentWillUnmount() {
+  this._isMounted = false;
+  if(!this._isMounted){
+    this.getData();
+  }
+  
+}
+
 
 
 render() {
+  const { navigation, route, remainingSecs } = this.props;
+  console.log('ggggggggg', route.params)
     return (
         <View style={{  }}>
           <Image 
@@ -23,23 +49,8 @@ render() {
           />
         </View>
       );
+      
     }
-
-  getData(){
-    setTimeout(() => {
-        this.props.navigation.navigate('Puzzle');
-    }, 5000);
-   
- }
- 
- componentDidMount(){
-   this.getData();
- }
- 
- componentWillUnmount() {
-   this.getData();
- }
-
 }
 const styles = StyleSheet.create({
     stretch: {

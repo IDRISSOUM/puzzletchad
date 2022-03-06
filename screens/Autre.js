@@ -10,7 +10,11 @@ import Icon from 'react-native-vector-icons/AntDesign';
 class Autre extends Component {
   render() {
     return (
-      <ScrollView style={{}}>
+      <ScrollView style={{
+        maxWidth: 'auto',
+         minWidth: 'auto',
+        //  backgroundColor: 'red'
+         }}>
         
       <View style={{
         flex: 1,

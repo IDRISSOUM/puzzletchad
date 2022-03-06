@@ -4,42 +4,39 @@ import { StyleSheet, Text, View, StatusBar, TouchableOpacity, Dimensions } from 
 const screen = Dimensions.get('window');
 
 const formatNumber = number => `0${number}`.slice(-2);
+var timeout;
 
 const getRemaining = (time) => {
     const mins = Math.floor(time / 60);
     const secs = time - mins * 60;
-    const timeout = secs
-    return { mins: formatNumber(mins), secs: formatNumber(secs),  timeout: formatNumber(timeout)};
+    return { mins: formatNumber(mins), secs: formatNumber(secs)};
 }
 
-export default function setPage({navigation}) {
+export default function setPage({navigation, route}) {
   const [remainingSecs, setRemainingSecs] = useState(0);
   const [isActive, setIsActive] = useState(false);
-  const { mins, secs, timeout } = getRemaining(remainingSecs);
-  const [timer, setTimer] = useState(false);
-
+  const { mins, secs } = getRemaining(remainingSecs);
+  // const [timer, setTime] = useState(false);
+var timeOut = 5;
+// console.log('hhhhhhh', remainingSecs)
   const toggle = () => {
     setIsActive(!isActive);
   }
 
-  console.log(remainingSecs)
-  console.log("Vous avez depassé le temps: ", timeout)
+  const getData = () => {
+    if (timeOut <= remainingSecs) {
+      reset();
+      navigation.navigate('testVrai');
+      console.log("Temps dépassé: ", remainingSecs);
+    }
+  }
+    
 
-  const reset = () => {
+// console.log('rrrrrrrrr', getData())
+  function reset() {
     setRemainingSecs(0);
     setIsActive(false);
-    setTime()
-    
-  }
-
-  const setTime = () => {
-    if (timeout === 20){
-      setRemainingSecs(0);
-      setIsActive(false);
-      console.log("bon debut")
-    }
-
-  }
+  }   
 
   useEffect(() => {
     let interval = null;
@@ -50,16 +47,24 @@ export default function setPage({navigation}) {
     } else if (!isActive && remainingSecs !== 0) {
       clearInterval(interval);
     }
+    getData();
     return () => clearInterval(interval);
   }, [isActive, remainingSecs]);
+
+  // const setTimeOut = () => {
+  //   if(remainingSecs == 5){
+  //     alert("Temps dépassé: ", timeout);
+  //   }
+  //   return setTimeOut();
+    
+  // }
+  console.log("Vous avez depassé le temps: ", remainingSecs)
 
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <Text style={styles.timerText}>{`${mins}:${secs}`}</Text>
-      <TouchableOpacity onPress={() => {toggle();  navigation.navigate('imageTchad', {
-       remainingSecs
-      })}} style={styles.button}>
+      <TouchableOpacity onPress={() => {toggle();  navigation.navigate('imageTchad', { remainingSecs })}} style={styles.button}>
           <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Jouez'}</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={reset} style={[styles.button, styles.buttonReset]}>

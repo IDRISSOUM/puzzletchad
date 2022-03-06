@@ -1,19 +1,8 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Share, SafeAreaView} from 'react-native';
+import {View, Text, TouchableOpacity, Share, SafeAreaView, StyleSheet, Dimensions, PixelRatio} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
-// import Share from 'react-native-share';
+const { width, height } = Dimensions.get('screen');
 
-// const myCustomShare = async() => {
-//   const ShareOptions = {
-//     message: 'This is a test message'
-//   }
-//   try {
-//     const ShareResponse = await Share.open(ShareOptions);
-//   } catch(error){
-//     console.log('Error =>', error)
-//   }
-    
-// };
 class Apropos extends Component {
   onShare = async () => {
     try {
@@ -36,55 +25,87 @@ class Apropos extends Component {
     }
   };
   render() {
+    console.log('qqqqqqq: ', PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').width/5),)
+    console.log('bbbbbbbb: ',  Dimensions.get("screen"))
     return (
-      <SafeAreaView>
 
-      {/* //   <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15, }} onPress={() => this.props.navigation.navigate('Autre')}>
-      //       <Text style={{fontSize: 18, fontFamily: "Cochin", fontStyle: 'normal'}}><Icon name="infocirlce" color="#000" size={30} /> A propos de Cato Tchad</Text>
-      //     </TouchableOpacity>
-      //     <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15,}} onPress={() => this.props.navigation.navigate('Real')}>
-      //       <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal', }}><Icon name="folderopen" color="#000" size={30} /> Nos Realisations</Text>
-      //     </TouchableOpacity>
-      //     <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15,}} onPress={() => this.props.navigation.navigate('Site')}>
-      //       <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon name="earth" color="#000" size={30} /> Voir Notre Site Web</Text>
-      //     </TouchableOpacity>
-      //     <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15,}} onPress={this.onShare}>
-      //       <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon name="sharealt" color="#000" size={30} /> Partager</Text>
-      //     </TouchableOpacity>
-      //     <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15,}} onPress={() => this.props.navigation.navigate('')}>
-      //       <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon name="star" color="#000" size={30} /> Evaluer</Text>
-      //     </TouchableOpacity>
-      //     <TouchableOpacity style={{ flex: 0.3, borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15, marginHorizontal: 30,}} onPress={() => this.props.navigation.navigate('')}>
-      //       <Text style={{fontSize: 18, fontFamily: 'Cochin', fontStyle: 'normal'}}><Icon color="#000" size={30} />Version 1.0.0</Text>
-      //     </TouchableOpacity> */}
-        
-         {/* <View style={{flex: 0.3,  borderBottomWidth: 1, borderBottomColor: '#000', }}>
-          <TouchableOpacity style={{ flex: 0.5, }} onPress={() => this.props.navigation.navigate('Autre')}>
-            <Text style={{fontSize: 20, fontFamily: "Cochin", fontStyle: 'italic'}}><Icon name="infocirlce" color="#000" size={30} />A propos de Cato Tchad</Text>
+        <View style={[styles.container, {
+              flexDirection: "column"
+            }]}>
+              <View style={{ 
+                flex: 1, 
+                backgroundColor: "white" 
+                }} 
+                >
+          <TouchableOpacity style={{ borderBottomWidth: 1, borderBottomColor: '#000',  }} onPress={() => this.props.navigation.navigate('Autre')}>
+            <Text style={styles.imageStyle}><Icon name="infocirlce" color="#000" size={25} /> A Propos de Cato Tchad</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{ flex:0.4, }} onPress={() => this.props.navigation.navigate('Real')}>
-            <Text style={{fontSize: 20, fontFamily: 'Cochin', fontStyle: 'italic', }}><Icon name="folderopen" color="#000" size={30} />Nos Realisations</Text>
+        </View>
+              <View style={{ 
+                flex: 1, 
+                backgroundColor: "white" 
+                }} 
+                >
+          <TouchableOpacity style={{ borderBottomWidth: 1, borderBottomColor: '#000', }} onPress={() => this.props.navigation.navigate('Real')}>
+            <Text style={styles.imageStyle}><Icon name="folderopen" color="#000" size={25} /> Nos Realisations</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{ flex: 0.4, }} onPress={() => this.props.navigation.navigate('Site')}>
-            <Text style={{fontSize: 20, fontFamily: 'Cochin', fontStyle: 'italic'}}><Icon name="earth" color="#000" size={30} />Voir Notre Site Web</Text>
+        </View>
+              <View style={{ 
+                flex: 1, 
+                // backgroundColor: "white" 
+                }} 
+                >
+          <TouchableOpacity style={{ borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15 }} onPress={() => this.props.navigation.navigate('Site')}>
+            <Text style={styles.imageStyle}><Icon name="earth" color="#000" size={25} /> Voir Notre Site Web</Text>
           </TouchableOpacity>
-        </View> 
-         <View style={{flex: 0.3, borderBottomColor: '000', borderBottomWidth: 1,}}>
-          <TouchableOpacity style={{ flex:0.4, }} onPress={() => this.props.navigation.navigate('Real')}>
-            <Text style={{fontSize: 20, fontFamily: 'Cochin', fontStyle: 'italic', }}><Icon name="folderopen" color="#000" size={30} />Nos Realisations</Text>
+        </View>
+              <View style={{ 
+                flex: 1, 
+                // backgroundColor: "white" 
+                }} 
+                >
+          <TouchableOpacity style={{ borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15 }} onPress={this.onShare}>
+            <Text style={styles.imageStyle}><Icon name="sharealt" color="#000" size={30} /> Partager</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{ flex: 0.4, }} onPress={() => this.props.navigation.navigate('Site')}>
-            <Text style={{fontSize: 20, fontFamily: 'Cochin', fontStyle: 'italic'}}><Icon name="earth" color="#000" size={30} />Voir Notre Site Web</Text>
+        </View>
+              <View style={{ 
+                flex: 1, 
+                // backgroundColor: "white" 
+                }} 
+                >
+          <TouchableOpacity style={{ borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15 }} onPress={() => this.props.navigation.navigate('')}>
+            <Text style={styles.imageStyle}><Icon name="star" color="#000" size={25} /> Evaluer</Text>
           </TouchableOpacity>
-        </View> 
-         <View style={{ flex: 0.3, borderBottomColor: '000', borderBottomWidth: 1, }}>
-          <TouchableOpacity style={{ flex: 0.4, }} onPress={() => this.props.navigation.navigate('Site')}>
-            <Text style={{fontSize: 20, fontFamily: 'Cochin', fontStyle: 'italic'}}><Icon name="earth" color="#000" size={30} />Voir Notre Site Web</Text>
-          </TouchableOpacity>
-        </View>  */}
-       {/* </View> */}
-       </SafeAreaView>
+        </View>
+              <View style={{ 
+                flex: 1, 
+                // backgroundColor: "white",
+                margin: 15
+                }} 
+                >
+          <TouchableOpacity style={{ borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15 }} onPress={() => this.props.navigation.navigate('')}>
+            <Text style={styles.imageStyle}><Icon color="#000" size={25} />Version 1.0.0</Text>
+          </TouchableOpacity> 
+        </View>
+        </View>
+
+     
     );
   }
 }
 export default Apropos;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 2,
+    width: width,
+    height: height
+  },
+  imageStyle: {
+    fontSize: 18, 
+    fontFamily: 'Cochin', 
+    fontStyle: 'italic',
+    fontWeight: 'bold'
+  }
+});
+

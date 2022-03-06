@@ -23,7 +23,7 @@ import { ITEM_WIDTH, SPACING } from './ListScreen';
 const { width, height } = Dimensions.get('window');
 import * as Animatable from 'react-native-animatable';
 
-// const AnimatedAntDesign = Animated.createAnimatedComponent(AntDesign);
+// const AnimatedAntDesign = Animated.createAnimatedComponent(AntDesign);ifc  
 const d = [...Array(5).keys()];
 
 const Detail = (props) => {

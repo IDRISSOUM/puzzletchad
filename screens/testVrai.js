@@ -1,28 +1,56 @@
-// import React, { Component } from 'react';
-// import { View, Text, TouchableOpacity, Image, StyleSheet  } from 'react-native';
-// import { AntDesign } from 'react-native-vector-icons/AntDesign';
-// import { SafeAreaView } from 'react-native-safe-area-context';
-// import { FlatList } from 'react-native-gesture-handler';
-// import { Item } from 'react-native-paper/lib/typescript/components/Drawer/Drawer';
+import React, { Component } from 'react';
+import { View, Text, TouchableOpacity, Image, StyleSheet, Dimensions  } from 'react-native';
+const screen = Dimensions.get('window');
 
-// const { width, height } = Dimensions.get('screen');
-// const ITEM_WIDTH = width * 0.76;
-// const ITEM_HEIGHT = ITEM_WIDTH * 1.47;
-// const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+export default class TravelListe extends Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+      return (
+        <View style={styles.container}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('SetPage')}  style={[styles.button, styles.buttonReset]}>
+            <Text style={[styles.buttonText, styles.buttonTextReset]}>Retour</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    }
+  }
 
-// export default function TravelList({navigation} {
-//     return(
-//         <SafeAreaView style={{flex: 1}}>
-//             <FlatList 
-//                 data={data}
-//                 keyExtractor={item => item.key}
-//                 renderItem={({item}) => {
-//                     return <TouchableOpacity onPress={() => {}} style={styles.itemContainer}>
-//                         <Image source={{uri: item.image}} style={[ StyleSheet.absoluteFillObject, {resizeMode: 'cover'}]}                                                                                                    
-//                     </TouchableOpacity>
-//                 }}
-//             />
-//         </SafeAreaView>
-        
-//     )
-// })``
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#22427CFF',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    button: {
+        borderWidth: 2,
+        borderColor: '#b71c1c',
+        width: screen.width / 2,
+        height: screen.width / 4,
+        borderRadius: screen.width / 2,
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 5
+    },
+    buttonReset: {
+        marginTop: 20,
+        borderColor: "#ffc107",
+        justifyContent: 'center',
+        borderRadius: 30,
+        shadowOpacity: 0.29,
+        shadowRadius: 4.65,
+        elevation: 2,
+        padding: 10,
+        width: 200,
+        height: 50,
+        // backgroundColor: '#FFFFFF',
+    },
+    buttonTextReset: {
+      color: "#ffc107",
+      fontWeight: 'bold',
+      fontSize: 20
+    }
+  });
+  

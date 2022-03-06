@@ -1,0 +1,14 @@
+com/jeutchad/ReactNativeFlipper.java
+ com.jeutchad.ReactNativeFlipper
+ com.jeutchad.ReactNativeFlipper$1
+ com.jeutchad.ReactNativeFlipper$2
+ com.jeutchad.ReactNativeFlipper$2$1
+com/jeutchad/MainActivity.java
+ com.jeutchad.MainActivity
+com/jeutchad/BuildConfig.java
+ com.jeutchad.BuildConfig
+com/jeutchad/MainApplication.java
+ com.jeutchad.MainApplication
+ com.jeutchad.MainApplication$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
