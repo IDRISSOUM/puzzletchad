@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text, Dimensions, TouchableOpacity, Image, FlatList} from 'react-native';
-// export const { width, height} = Dimensions.get('window');
 const { width, height } = Dimensions.get('screen');
 
 class Profile2 extends Component {
@@ -8,19 +7,57 @@ class Profile2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
       selectedFruits: [],
-      is_Active: null,
+      is_Active: 0,
+      choice: 0,
       images: [
         {
           id: 0,
-          region: '../assets2/0.png',
-          ville: 'Tiberti'
+          region: require('../assets2/0.png'),
+          ville: 'Tiberti',
+          suggestions: [
+            {
+              id: 0,
+              label: 'Tiberti'
+            },
+            {
+              id:1,
+              label: 'Borkou'
+            },
+            {
+              id:3,
+              label: 'Ennedi-Est'
+            },
+            {
+              id:5,
+              label: 'Barh El Gazel'
+            },
+
+          ]
           },
           {
           id: 1,
-          region: '../assets2/1.png',
-          ville: 'Borkou'
+          region: require('../assets2/1.png'),
+          ville: 'Borkou',
+          suggestions: [
+            {
+              id: 0,
+              label: 'Ennedi-Est'
+            },
+            {
+              id:1,
+              label: 'Borkou'
+            },
+            {
+              id:3,
+              label: 'Tiberti'
+            },
+            {
+              id:5,
+              label: 'Barh El Gazel'
+            },
+
+          ]
           },
           {
           id: 2,
@@ -121,7 +158,8 @@ class Profile2 extends Component {
         image22: require('../assets2/22.png'),   
         
     } 
-   
+  //  Data1 = this.state.props;
+  //  console.log(Data1);
   }
 
 // changeImageColor() {
@@ -135,6 +173,19 @@ class Profile2 extends Component {
 //    }
 //   }
 // }
+
+
+incrementIsActive = (id) => {
+  if(this.state.is_Active < 22 && id === this.state.is_Active){
+    alert("Bonne Reponse")
+    this.setState({
+      is_Active: this.state.is_Active + 1
+    })
+  } else {
+    alert("mauvaise Reponse")
+  }
+  
+}
 
 onPressHandler(id) {
     let images = [...this.state.images];           // making copy of renderData data locally
@@ -181,7 +232,7 @@ onPressHandler(id) {
           })
         }, 5000)
        })
-      
+       console.log('mounting...', this._isMounted);
 
     }
     
@@ -194,26 +245,27 @@ componentDidMount(){
  
 componentWillUnmount() {
   this._isMounted = false;
-  // this.getData();
-  
-  
+  if(!this._isMounted){
+    this.getData();
+  }
+  console.log('unmounting...', this._isMounted);
 }
 
   render() {
-    // const { navigation, route } = this.props;
-    // console.log('ggggggggg', route.params)    
+    // const { navigation, route } = this.props.params.val;
+    // console.log('ggggggggg', this.props.params.val)    
     return (
       <View style={styles.container}>
         <View style={styles.top}><Text style={{flexDirection: 'row-reverse'}}></Text></View>
         <View style={styles.middle}>
         <View 
-        style={{
+        style={[{
           right: -76,
           bottom: -27,
-        }}
+        },this.state.images[0].id === this.state.is_Active ? {}:{}]}
         >
-        <TouchableOpacity onPress={this.region0Alert} >
-            <Image source={this.state.image0} style={styles.image0}/>
+        <TouchableOpacity onPress={this.region0Alert}>
+            <Image source={this.state.images[0].region} style={styles.image0}/>
         </TouchableOpacity>
         </View>
 
@@ -226,14 +278,14 @@ componentWillUnmount() {
         </TouchableOpacity>
         </View>
 
-        <View style={{
+        <View style={[{
           left: -85,
           bottom: -101.9,
 
-          }}>
+          },this.state.images[1].id === this.state.is_Active ? {}:{}]}>
         <TouchableOpacity
           onPress={this.region2Alert} >
-            <Image source={this.state.image2} style={styles.image2}/>
+            <Image source={this.state.images[1].region} style={styles.image2}/>
         </TouchableOpacity> 
         </View>
 
@@ -457,12 +509,12 @@ componentWillUnmount() {
           <View style={styles.bottom}>
             <View style={styles.FlatListContainer}>
               <FlatList
-                data={this.state.images} // set render data in flatlist
+                data={this.state.images[this.state.is_Active].suggestions} // set render data in flatlist
                 numColumns={2} 
                 columnWrapperStyle={styles.row}
                 keyExtractor={item => item.id.toString()} // keyExtractor convert INT  'item.id' value to string 
                 renderItem={({ item }) =>
-                  <TouchableOpacity  color={item.selected == true ? '#e1601f' : '#ffffff'} //  color of TouchableOpacity will change according to selection
+                  <TouchableOpacity  color={item.selected == true ? 'red' : '#ffffff'} //  color of TouchableOpacity will change according to selection
 
                     style={
                       item.selected == true
@@ -470,7 +522,7 @@ componentWillUnmount() {
                         ? {
                           margin: 5, 
                           borderRadius: 5, 
-                          backgroundColor: '#e1601f',
+                          backgroundColor: 'red',
                           justifyContent: 'center',
                           borderRadius: 30,
                           shadowOpacity: 0.29,
@@ -485,7 +537,7 @@ componentWillUnmount() {
                         : {
                           margin: 5, 
                           borderRadius: 2, 
-                          // backgroundColor: '#e1601f',
+                          // backgroundColor: 'red',
                           justifyContent: 'center',
                           borderRadius: 30,
                           shadowOpacity: 0.29,
@@ -498,7 +550,7 @@ componentWillUnmount() {
                         }
                     }
                     // onPress will call the function when button is clicked
-                    onPress={() => this.onPressHandler(item.id)}><Text style={styles.custom}>{item.ville}</Text>
+                    onPress={() => this.incrementIsActive(item.id)}><Text style={styles.custom}>{item.label}</Text>
                   </TouchableOpacity>
                 } />
             </View>

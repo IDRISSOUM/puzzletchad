@@ -5,12 +5,13 @@ class Real extends Component {
   render() {
     return (
       <ScrollView style={{}}>
-        <View style={{ }}>
+        <View style={{ paddingTop: 15}}>
             <Text style={styles.real}>Les Réalisations et les Expériences CartoTchad :</Text>
       </View>
       
       <View style={{
         flex: 1,
+        padding: 10
       }}>   
           <Text style={styles.innerText}>{'\n'}
             Une Plateforme Cartographique et Système d’Information Géographique (SIG), Géomatique, Collecte de Donnée Mobile (CDM), de la production de cartographies interactives, 
@@ -65,7 +66,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(135, 206, 250)',
   },
   innerText: {
-    textAlign: 'justify'
+    textAlign: 'justify',
+
   },
   row: {
     flexDirection: 'row',
@@ -82,6 +84,7 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
     fontStyle: "normal",
     fontSize: 15,
+    padding: 10
 
   },
 }) 

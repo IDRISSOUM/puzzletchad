@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MapView from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Alert, PixelRatio } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Alert, PixelRatio, SafeAreaView } from 'react-native';
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const { width, height } = Dimensions.get('screen');
@@ -351,7 +351,10 @@ componentWillUnmount() {
 
   render() {
     return(
+      <SafeAreaView style={{backgroundColor: '#22427CFF'}}>
+        <Text style={{fontSize: 15, fontWeight: '800', color: 'white', }}> Appuyez sur une region pour pour en savoir plus </Text>
       <View style={styles.container}>
+        
 
         <View 
         style={{
@@ -603,6 +606,7 @@ componentWillUnmount() {
           </TouchableOpacity>
          </View>
       </View>
+      </SafeAreaView>
     ) 
   }
   }
@@ -613,7 +617,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'red',
     width: width,
-    height: height
+    height: height,
+    // padding: 5,
+    paddingLeft: 30,
+    // paddingRight: 0 
+    // paddingRight: 300
     // width: PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').width),
     // height: PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').height)/100
     },

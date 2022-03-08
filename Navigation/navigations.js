@@ -17,6 +17,7 @@ import imageTchad from '../screens/imageTchad';
 import testModal from '../screens/testModal';
 import ListScreen from '../screens/ListScreen';
 import testVrai from '../screens/testVrai';
+import rating from '../screens/rating'
 
 const ListStack = createNativeStackNavigator();
 
@@ -31,7 +32,7 @@ function ListStackScreen() {
     }}
     />
     <ListStack.Screen 
-    name="ListScreenDetails" 
+    name="ListScreenDetail" 
     component={ListScreenDetails} 
     options={{
       header: () => null,
@@ -118,6 +119,13 @@ function HomeStackScreen() {
       <HomeStack.Screen name="Real" component={Real} />
       <HomeStack.Screen name="Site" component={Site} />
       <HomeStack.Screen name="Atlas" component={Atlas} />
+      <HomeStack.Screen 
+      name="rating" 
+      component={rating} 
+      options={{
+        header: () => null,
+      }}
+      />
       
     </HomeStack.Navigator>
   );

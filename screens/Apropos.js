@@ -33,8 +33,10 @@ class Apropos extends Component {
               flexDirection: "column"
             }]}>
               <View style={{ 
-                flex: 1, 
-                backgroundColor: "white" 
+                flex: 1,
+                paddingTop: 25,
+                margin: 5  
+                // backgroundColor: "white" 
                 }} 
                 >
           <TouchableOpacity style={{ borderBottomWidth: 1, borderBottomColor: '#000',  }} onPress={() => this.props.navigation.navigate('Autre')}>
@@ -42,25 +44,29 @@ class Apropos extends Component {
           </TouchableOpacity>
         </View>
               <View style={{ 
-                flex: 1, 
-                backgroundColor: "white" 
+                flex: 1,
+                margin: 5  
+                
+                // backgroundColor: "white" 
                 }} 
                 >
-          <TouchableOpacity style={{ borderBottomWidth: 1, borderBottomColor: '#000', }} onPress={() => this.props.navigation.navigate('Real')}>
+          <TouchableOpacity style={{ borderBottomWidth: 1, borderBottomColor: '#000', paddingTop: -15}} onPress={() => this.props.navigation.navigate('Real')}>
             <Text style={styles.imageStyle}><Icon name="folderopen" color="#000" size={25} /> Nos Realisations</Text>
           </TouchableOpacity>
         </View>
               <View style={{ 
-                flex: 1, 
+                flex: 1,
+                margin: 5  
                 // backgroundColor: "white" 
                 }} 
                 >
-          <TouchableOpacity style={{ borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15 }} onPress={() => this.props.navigation.navigate('Site')}>
+          <TouchableOpacity style={{ borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15, }} onPress={() => this.props.navigation.navigate('Site')}>
             <Text style={styles.imageStyle}><Icon name="earth" color="#000" size={25} /> Voir Notre Site Web</Text>
           </TouchableOpacity>
         </View>
               <View style={{ 
-                flex: 1, 
+                flex: 1,
+                margin: 5  
                 // backgroundColor: "white" 
                 }} 
                 >
@@ -69,22 +75,23 @@ class Apropos extends Component {
           </TouchableOpacity>
         </View>
               <View style={{ 
-                flex: 1, 
+                flex: 1,
+                margin: 5 
                 // backgroundColor: "white" 
                 }} 
                 >
-          <TouchableOpacity style={{ borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15 }} onPress={() => this.props.navigation.navigate('')}>
+          <TouchableOpacity style={{ borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15 }} onPress={() => this.props.navigation.navigate('rating')}>
             <Text style={styles.imageStyle}><Icon name="star" color="#000" size={25} /> Evaluer</Text>
           </TouchableOpacity>
         </View>
               <View style={{ 
                 flex: 1, 
                 // backgroundColor: "white",
-                margin: 15
+                margin: 25
                 }} 
                 >
-          <TouchableOpacity style={{ borderBottomWidth: 0.5, borderBottomColor: '#000', marginBottom: 15 }} onPress={() => this.props.navigation.navigate('')}>
-            <Text style={styles.imageStyle}><Icon color="#000" size={25} />Version 1.0.0</Text>
+          <TouchableOpacity style={{ borderBottomWidth: 0.5, borderBottomColor: '#000',  marginBottom: 15}} onPress={() => this.props.navigation.navigate('')}>
+            <Text style={styles.imageStyle}>Version 1.0.0</Text>
           </TouchableOpacity> 
         </View>
         </View>

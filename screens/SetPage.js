@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, StatusBar, TouchableOpacity, Dimensions } from 
 const screen = Dimensions.get('window');
 
 const formatNumber = number => `0${number}`.slice(-2);
-var timeout;
+var timeOut = 20;
 
 const getRemaining = (time) => {
     const mins = Math.floor(time / 60);
@@ -12,13 +12,11 @@ const getRemaining = (time) => {
     return { mins: formatNumber(mins), secs: formatNumber(secs)};
 }
 
-export default function setPage({navigation, route}) {
+export default function setPageTime({navigation}) {
   const [remainingSecs, setRemainingSecs] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const { mins, secs } = getRemaining(remainingSecs);
-  // const [timer, setTime] = useState(false);
-var timeOut = 5;
-// console.log('hhhhhhh', remainingSecs)
+
   const toggle = () => {
     setIsActive(!isActive);
   }
@@ -26,13 +24,11 @@ var timeOut = 5;
   const getData = () => {
     if (timeOut <= remainingSecs) {
       reset();
-      navigation.navigate('testVrai');
-      console.log("Temps dépassé: ", remainingSecs);
+      navigation.navigate('testVrai', { val: remainingSecs });
+      console.log("Temps Ecoulé: ", remainingSecs);
     }
   }
     
-
-// console.log('rrrrrrrrr', getData())
   function reset() {
     setRemainingSecs(0);
     setIsActive(false);
@@ -51,25 +47,20 @@ var timeOut = 5;
     return () => clearInterval(interval);
   }, [isActive, remainingSecs]);
 
-  // const setTimeOut = () => {
-  //   if(remainingSecs == 5){
-  //     alert("Temps dépassé: ", timeout);
-  //   }
-  //   return setTimeOut();
-    
-  // }
-  console.log("Vous avez depassé le temps: ", remainingSecs)
 
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
+      <View style={{textAlign: 'center',}}>
+          <Text style={{fontSize: 15, fontWeight: '800', color: 'white'}}> Pour commencez le jeu{'\n'}<Text style={{ alignItems: 'center', right: 24}}>appuyez Sur Jouez</Text></Text>
+         </View> 
       <Text style={styles.timerText}>{`${mins}:${secs}`}</Text>
-      <TouchableOpacity onPress={() => {toggle();  navigation.navigate('imageTchad', { remainingSecs })}} style={styles.button}>
+      <TouchableOpacity onPress={() => {toggle();  navigation.navigate('imageTchad', { val: remainingSecs })}} style={styles.button}>
           <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Jouez'}</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={reset} style={[styles.button, styles.buttonReset]}>
+      {/* <TouchableOpacity onPress={reset} style={[styles.button, styles.buttonReset]}>
           <Text style={[styles.buttonText, styles.buttonTextReset]}>Reset</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
     
   );

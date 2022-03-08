@@ -31,11 +31,11 @@ class Autre extends Component {
         <Image source={require('../assets/titre.png')} style={{ height: 190, width: 230, left: 40, resizeMode: 'cover',}}/>
       </View>
       <View style={{flex: 0.5,}}>
-        <Text style={{fontStyle: "normal", fontSize: 20, flex: 3, fontFamily: "Cochin", fontWeight: "bold", textDecorationLine: 'underline', textAlign: 'justify',}}>
+        <Text style={{fontStyle: "normal", fontSize: 20, flex: 3, fontFamily: "Cochin", fontWeight: "bold", textDecorationLine: 'underline', textAlign: 'center', }}>
               Notre mission
               {'\n'}
           </Text>
-          <Text style={{flex: 1, fontSize: 18, fontStyle: "normal"}}>
+          <Text style={{flex: 1, fontSize: 16, fontStyle: "normal", padding: 10}}>
             Au sein de CARTOTCHAD nous faisons la promotion et vulgarisation de l’information géographique 
             et la rendre accessible au grand public. Particulièrement, est de :{'\n'}
           </Text>
@@ -62,11 +62,11 @@ class Autre extends Component {
         <Image source={require('../assets/titre1.png')} style={{ height: 190, width: 230, left: 40, resizeMode: 'cover',}}/>
       </View>
 
-          <Text style={{fontStyle: "normal", fontSize: 20, flex: 3, fontFamily: "Cochin", fontWeight: "bold", textDecorationLine: 'underline', textAlign: 'justify',}}>
+          <Text style={{fontStyle: "normal", fontSize: 20, flex: 3, fontFamily: "Cochin", fontWeight: "bold", textDecorationLine: 'underline', textAlign: 'center', }}>
                   Nos Valeurs
               {'\n'}
           </Text>
-          <Text style={{flex: 1, fontSize: 18, fontStyle: "normal"}}>
+          <Text style={{flex: 1, fontSize: 16, fontStyle: "normal", padding: 10}}>
             Les valeurs de la plateforme CARTOTCHAD s’articule autour de :{'\n'}
           </Text>
 
@@ -122,9 +122,10 @@ const styles = StyleSheet.create({
   innerText: {
     flex: 1,
     fontFamily: "Cochin",
-    fontSize: 19,
+    fontSize: 17,
     fontStyle: "normal",
-    textAlign: 'justify'
+    textAlign: 'justify',
+    padding: 10
   },
   row: {
     flexDirection: 'row',
@@ -141,12 +142,14 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
     fontStyle: "normal",
     fontSize: 15,
+    
 
   },
   font: {
     fontSize: 15,
     fontStyle: "normal",
-    textAlign: 'justify'
+    textAlign: 'justify',
+    
   },
   puces: {
     fontSize: 15, 
