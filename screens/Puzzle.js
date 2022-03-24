@@ -10,6 +10,7 @@ class Profile2 extends Component {
       selectedFruits: [],
       is_Active: 0,
       choice: 0,
+      refresh: false,
       images: [
         {
           id: 0,
@@ -175,6 +176,12 @@ class Profile2 extends Component {
 // }
 
 
+refresh() {
+  this.setState({
+      refresh: !this.state.refresh,
+  })
+}
+
 incrementIsActive = (id) => {
   if(this.state.is_Active < 22 && id === this.state.is_Active){
     alert("Bonne Reponse")
@@ -187,43 +194,43 @@ incrementIsActive = (id) => {
   
 }
 
-onPressHandler(id) {
-    let images = [...this.state.images];           // making copy of renderData data locally
-    let selectedFruits = [...this.state.selectedFruits];   // making copy of selectedFruits data locally
+// onPressHandler(id) {
+//     let images = [...this.state.images];           // making copy of renderData data locally
+//     let selectedFruits = [...this.state.selectedFruits];   // making copy of selectedFruits data locally
 
-    for (let data of images) {
-      if (data.id == id) {
+//     for (let data of images) {
+//       if (data.id == id) {
 
-        data.selected = (data.selected == null) ? true : !data.selected; // making button selcted or not using boolen
+//         data.selected = (data.selected == null) ? true : !data.selected; // making button selcted or not using boolen
 
-        if (data.selected) {        
-          selectedFruits.push(data.ville);  // push selected fruit value to array
-        } else {
-          selectedFruits = this.arrayRemove(this.state.selectedFruits, data.ville)  // remove unselected fruit from array
-        }
-        break;
-      }
-      // console.log(renderData.length)
-      console.log(selectedFruits.length)
-    }
+//         if (data.selected) {        
+//           selectedFruits.push(data.ville);  // push selected fruit value to array
+//         } else {
+//           selectedFruits = this.arrayRemove(this.state.selectedFruits, data.ville)  // remove unselected fruit from array
+//         }
+//         break;
+//       }
+//       // console.log(renderData.length)
+//       console.log(selectedFruits.length)
+//     }
 
-    this.setState({ images });  // updating current selected button data to state
-    this.setState({ selectedFruits });  // updating current selected Fruits data to state
-  }
+//     this.setState({ images });  // updating current selected button data to state
+//     this.setState({ selectedFruits });  // updating current selected Fruits data to state
+//   }
+
 
 
   // function which remove value from array and return  
-  arrayRemove(arr, value) {
+  // arrayRemove(arr, value) {
 
-    return arr.filter(function (geeks) {
-      return geeks != value;
+  //   return arr.filter(function (geeks) {
+  //     return geeks != value;
 
-    });
-  }
+  //   });
+  // }
 
   getData(){
-    this._isMounted = true;
-    if(this._isMounted){
+    if(!_isMounted){
       this.state.images.map((item, key) => {
         setTimeout(() => {
           this.setState({
@@ -237,22 +244,25 @@ onPressHandler(id) {
     }
     
  }
- 
+ componentDidUpdate(prevProps) {
+   this.getData;
+      }
 
 componentDidMount(){
-    this.getData();
+  if(!this._isMounted)
+    this.getData;
+    // console.log('TTTTTRRRREEE"<<<<<<>>>', this.props.route)
 }
  
 componentWillUnmount() {
-  this._isMounted = false;
-  if(!this._isMounted){
-    this.getData();
+  if(this._isMounted){
+    this.getData;
   }
   console.log('unmounting...', this._isMounted);
 }
 
   render() {
-    // const { navigation, route } = this.props.params.val;
+    const { navigation, route } = this.props;
     // console.log('ggggggggg', this.props.params.val)    
     return (
       <View style={styles.container}>

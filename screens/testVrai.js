@@ -4,12 +4,13 @@ const screen = Dimensions.get('window');
 
 export default function TravelListe({navigation, route}){
 
-  // console.log('mmm', route.params.val)
+  console.log('mmm', route.params.val.mins)
+  
 
   return (
     <View style={styles.container}>
       <View style={{}}>
-        <Text style={styles.timerText}>{`Temps Ecoulé: ${route.params.val}s`}</Text>
+        <Text style={styles.timerText}>{`Temps Ecoulé: ${route.params.val.mins}min ${route.params.val.secs}s`}</Text>
       </View>
 
       <View style={{}}>
@@ -61,7 +62,7 @@ export default function TravelListe({navigation, route}){
     },
     timerText: {
       color: '#fff',
-      fontSize: 30,
+      fontSize: 20,
       marginBottom: 20
   },
     timerText1: {

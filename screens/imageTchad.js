@@ -1,46 +1,25 @@
 
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Image, StyleSheet, ScrollView, RefreshControl } from 'react-native';
 
 
-
-class SetImage extends Component {
-  _isMounted = false;
-    constructor(props) {
-        super(props);
-        this.state = {
-            refreshing: false,
-            
-        }
-    }
-//  Data = this.props.params.remainingSecs;
-getData(){
-  setTimeout(() => {
-      this.props.navigation.navigate('Puzzle');
-  }, 5000);
- 
-}
-
-componentDidMount(){
-  this._isMounted = true;
-  if (this._isMounted){
-    this.getData();
-  }
-}
-
-componentWillUnmount() {
-  this._isMounted = false;
-  if(!this._isMounted){
-    this.getData();
-  }
-  
-}
-
-
-
-render() {
-  const { navigation, route, remainingSecs } = this.props;
+export default function SetImage (props) {
+  const { route } = props;
   console.log('ggggggggg', route.params)
+
+  useEffect(() => {
+    getData();
+  }, [])
+
+  const getData = () => {
+    setTimeout(() => {
+      props.navigation.navigate('Puzzle', {params: route.params.val});
+    }, 5000);
+  }
+    
+
+    console.log(props)
+  
     return (
         <View style={{  }}>
           <Image 
@@ -49,14 +28,11 @@ render() {
           />
         </View>
       );
-      
-    }
 }
+
 const styles = StyleSheet.create({
     stretch: {
       resizeMode: 'contain'
     }
   });
-
-export default SetImage;
 

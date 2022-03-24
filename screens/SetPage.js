@@ -24,8 +24,8 @@ export default function setPageTime({navigation}) {
   const getData = () => {
     if (timeOut <= remainingSecs) {
       reset();
-      navigation.navigate('testVrai', { val: remainingSecs });
-      console.log("Temps Ecoulé: ", remainingSecs);
+      navigation.navigate('testVrai', { val: getRemaining(remainingSecs) });
+      console.log("Temps Ecoulé: ", getRemaining(remainingSecs));
     }
   }
     
@@ -47,6 +47,7 @@ export default function setPageTime({navigation}) {
     return () => clearInterval(interval);
   }, [isActive, remainingSecs]);
 
+  console.log('kkkkk', remainingSecs)
 
   return (
     <View style={styles.container}>

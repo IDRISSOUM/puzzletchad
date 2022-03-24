@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MapView from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Alert, PixelRatio, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Alert, useWindowDimensions, SafeAreaView } from 'react-native';
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const { width, height } = Dimensions.get('screen');
@@ -337,7 +337,7 @@ getData(){
 }
 
 componentDidMount(){
-  this.getData();
+  this.getData;
   console.log({
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height
@@ -345,267 +345,266 @@ componentDidMount(){
 }
 
 componentWillUnmount() {
-  this.getData();
+  this.getData;
   
 }
 
+ccomponentDidUpdate(){
+  this.getData;
+}
+
   render() {
+    
     return(
       <SafeAreaView style={{backgroundColor: '#22427CFF'}}>
-        <Text style={{fontSize: 15, fontWeight: '800', color: 'white', }}> Appuyez sur une region pour pour en savoir plus </Text>
+        <Text style={{fontSize: 13, fontWeight: '500', color: 'white', margin: 10}}> Carte interactive pour l'apprentissage des regions du tchad {'\n'} Appuyez sur une region pour en savoir plus </Text>
       <View style={styles.container}>
-        
-
-        <View 
-        style={{
-          right: -7,
-          bottom: -3,
+        <View style={{flexDirection: 'row', flex: 1, marginTop: '5%', marginLeft: '5%'}} >
+        <TouchableOpacity onPress={this.region0Alert}  style={{
+          right: -60,
+          bottom: -30,
          
-        }}
-        >
-        <TouchableOpacity onPress={this.region0Alert} >
+        }}>
             <Image source={this.state.image0} style={styles.image0}/>
         </TouchableOpacity>
-        </View>
 
-        <View style={{
-          top: 65,
-          left: -151.8,
+        
+        <TouchableOpacity onPress={this.region1Alert} style={{
+          top: 78,
+          left: -62,
           
           }}>
-        <TouchableOpacity onPress={this.region1Alert}>
             <Image source={this.state.image1} style={styles.image1}/>
         </TouchableOpacity>
-        </View>
 
-        <View style={{
-          left: -234,
-          bottom: -106.5,
-
-          }}>
+        
         <TouchableOpacity
-          onPress={this.region2Alert} >
+          onPress={this.region2Alert} style={{
+            left: -125.8,
+            bottom: -110,
+  
+            }}>
             <Image source={this.state.image2} style={styles.image2}/>
-        </TouchableOpacity> 
-        </View>
+        </TouchableOpacity>
 
-        <View style={{
-          left: -249,
-          bottom: -136
-          }}>
+        
           <TouchableOpacity
+          style={{
+            left: -136.5,
+            bottom: -133
+            }}
             onPress={this.createTwoButtonAlert} >
               <Image source={this.state.image3} style={styles.image3} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-          left: -704,
-          bottom: -291
-
-           }}>
+         
           <TouchableOpacity
+          style={{
+            left: -485,
+            bottom: -251
+  
+             }}
             onPress={this.region3Alert} >
               <Image source={this.state.image4} style={styles.image4} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-         left: -752,
-         bottom: -315.5
-
-           }}>
+         
           <TouchableOpacity
+          style={{
+            left: -520.5,
+            bottom: -270
+   
+              }}
             onPress={this.region4Alert} >
               <Image source={this.state.image5} style={styles.image5} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-         left: -798,
-         bottom: -323
-
-           }}>
+         
           <TouchableOpacity
+          style={{
+            left: -556,
+            bottom: -275
+   
+              }}
             onPress={this.region5Alert} >
               <Image source={this.state.image6} style={styles.image6} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-         left: -813,
-         bottom: -326.5
-          
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -566.8,
+            bottom: -279
+             
+            }}
             onPress={this.region6Alert} >
               <Image source={this.state.image7} style={styles.image7} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-          left: -943.8,
-          bottom: -395.2
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -667.7,
+            bottom: -331
+  
+           }}
             onPress={this.region7Alert} >
               <Image source={this.state.image8} style={styles.image8} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-            left: -1330,
-            bottom: -391
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -963.7,
+            bottom: -327.5
+
+         }}
             onPress={this.region8Alert} >
               <Image source={this.state.image9} style={styles.image9} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-            left: -1377.8,
-            bottom: -440.1
-         }}>
+        
           <TouchableOpacity
+          style={{
+            left: -999.5,
+            bottom: -364.99
+         }}
             onPress={this.region9Alert} >
               <Image source={this.state.image10} style={styles.image10} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-            left: -1480,
-            bottom: -480.4         
-            }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1111,
+            bottom: -375         
+            }}
             onPress={this.inconnu} >
               <Image source={this.state.image11} style={styles.image11} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-            left: -1405,
-            bottom: -454.3
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1020,
+            bottom: -376
+
+         }}
             onPress={this.region10Alert} >
               <Image source={this.state.image12} style={styles.image12} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-            left: -1422,
-            bottom: -455
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1033,
+            bottom: -376.9
+
+         }}
             onPress={this.region12Alert} >
               <Image source={this.state.image13} style={styles.image13} />
           </TouchableOpacity>
-         </View>
          
-         <View style={{
-            left: -1772,
-            bottom: -481
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1300.2,
+            bottom: -396.9
+
+         }}
             onPress={this.region13Alert} >
               <Image source={this.state.image14} style={styles.image14} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-            left: -1781.5,
-            bottom: -560.5
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1307,
+            bottom: -458
+
+         }}
             onPress={this.region12Alert} >
               <Image source={this.state.image15} style={styles.image15} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-           left: -1831,
-           bottom: -494.5
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1343.4,
+            bottom: -408
+ 
+          }}
             onPress={this.region11Alert} >
               <Image source={this.state.image16} style={styles.image16} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-           left: -2181.9,
-           bottom: -534
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1602,
+            bottom: -438
+ 
+          }}
             onPress={this.createTwoButtonAlert} >
               <Image source={this.state.image17} style={styles.image17} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-           left: -2218.8,
-           bottom: -570.5
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1629.7,
+            bottom: -469.5
+ 
+          }}
             onPress={this.createTwoButtonAlert} >
               <Image source={this.state.image18} style={styles.image18} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-           left: -1410.9,
-           bottom: -432
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1648,
+            bottom: -489.6
+ 
+          }}
             onPress={this.createTwoButtonAlert} >
               <Image source={this.state.image19} style={styles.image19} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-           left: -1530.9,
-           bottom: -421
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1788,
+            bottom: -479
+ 
+          }}
             onPress={this.createTwoButtonAlert} >
               <Image source={this.state.image20} style={styles.image20} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-           left: -1539,
-           bottom: -443
-           
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1794,
+            bottom: -503
+            
+          }}
             onPress={this.createTwoButtonAlert} >
               <Image source={this.state.image21} style={styles.image21} />
           </TouchableOpacity>
-         </View>
 
-         <View style={{
-           left: -1579.9,
-           bottom: -445
-
-         }}>
+         
           <TouchableOpacity
+          style={{
+            left: -1840,
+            bottom: -505
+ 
+          }}
             onPress={this.createTwoButtonAlert} >
               <Image source={this.state.image22} style={styles.image22} />
           </TouchableOpacity>
+          </View>
          </View>
-      </View>
       </SafeAreaView>
     ) 
   }
@@ -618,128 +617,123 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     width: width,
     height: height,
-    // padding: 5,
-    paddingLeft: 30,
-    // paddingRight: 0 
-    // paddingRight: 300
-    // width: PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').width),
-    // height: PixelRatio.getPixelSizeForLayoutSize(Dimensions.get('window').height)/100
+
     },
   image0: {
     resizeMode: 'contain',
-    height: 273.7,
-    width: 180.9,
+    height: 210.53,
+    width: 139.15,
     },
   image1: {
     resizeMode: 'contain',
-    height: 293,
-    width: 244,
+    height: 225,
+    width: 187,
     },
-    image2: {
-      resizeMode: 'contain',
-      height: 240.1,
-      width: 139.3,
-      
-      },
-    image3: {
-      resizeMode: 'contain',
-      height: 211.3,
-      width: 88.1,
-      },
-      image4: {
-        resizeMode: 'contain',
-        height: 160.5,
-        width: 133.3,
-        },
-      image5: {
-        resizeMode: 'contain',
-        height: 141.2,
-        width: 106.2,
-        },
-      image6: {
-        resizeMode: 'contain',
-        height: 174.5,
-        width: 148.9,
-        },
-      image7: {
-        resizeMode: 'contain',
-        height: 91.6,
-        width: 129.8,
-        },
-      image8: {
-        resizeMode: 'contain',
-        height: 78.5,
-        width: 100.9,
-        },
-      image9: {
-        resizeMode: 'contain',
-        height: 67.3,
-        width: 92.9,
-        },
-      image10: {
-        resizeMode: 'contain',
-        height: 84.9,
-        width: 137.9,
-        },
-      image11: {
-        resizeMode: 'contain',
-        height: 11.3,
-        width: 11.3,
-        },
-      image12: {
-        resizeMode: 'contain',
-        height: 140.9,
-        width: 128.3,
-        },
-      image13: {
-        resizeMode: 'contain',
-        height: 94.5,
-        width: 137.7,
-        },
-      image14: {
-        resizeMode: 'contain',
-        height: 115.3,
-        width: 112.4,
-        },
-      image15: {
-        resizeMode: 'contain',
-        height: 113.7,
-        width: 114.3,
-        },
-      image16: {
-        resizeMode: 'contain',
-        height: 133.2,
-        width: 157,
-        },
-      image17: {
-        resizeMode: 'contain',
-        height: 87.1,
-        width: 94.5,
-        },
-      image18: {
-        resizeMode: 'contain',
-        height: 56.8,
-        width: 63,
-        },
-      image19: {
-        resizeMode: 'contain',
-        height: 80.2,
-        width: 51.4,
-        },
-      image20: {
-        resizeMode: 'contain',
-        height: 68.2,
-        width: 64.1,
-        },
-      image21: {
-        resizeMode: 'contain',
-        height: 44.9,
-        width: 59.3,
-        },
-      image22: {
-        resizeMode: 'contain',
-        height: 76.9,
-        width: 89.7,
-      }
+image2: {
+  resizeMode: 'contain',
+  height: 184,
+  width: 107,
+  
+  },
+image3: {
+  resizeMode: 'contain',
+  height: 162,
+  width: 67,
+  },
+  image4: {
+    resizeMode: 'contain',
+    height: 123,
+    width: 102,
+    },
+  image5: {
+    resizeMode: 'contain',
+    height: 108,
+    width: 81,
+    },
+  image6: {
+    resizeMode: 'contain',
+    height: 134,
+    width: 114,
+    },
+  image7: {
+    resizeMode: 'contain',
+    height: 70,
+    width: 99,
+    },
+  image8: {
+    resizeMode: 'contain',
+    height: 60,
+    width: 77,
+    },
+  image9: {
+    resizeMode: 'contain',
+    height: 51,
+    width: 71,
+    },
+  image10: {
+    resizeMode: 'contain',
+    height: 65,
+    width: 106,
+    },
+  image11: {
+    resizeMode: 'contain',
+    height: 8,
+    width: 8,
+    },
+  image12: {
+    resizeMode: 'contain',
+    height: 108,
+    width: 98,
+    },
+  image13: {
+    resizeMode: 'contain',
+    height: 72,
+    width: 105,
+    },
+  image14: {
+    resizeMode: 'contain',
+    height: 88,
+    width: 86,
+    },
+  image15: {
+    resizeMode: 'contain',
+    height: 87,
+    width: 87,
+    },
+  image16: {
+    resizeMode: 'contain',
+    height: 102,
+    width: 120,
+    },
+  image17: {
+    resizeMode: 'contain',
+    height: 67,
+    width: 51,
+    },
+  image18: {
+    resizeMode: 'contain',
+    height: 43,
+    width: 72,
+    },
+  image19: {
+    resizeMode: 'contain',
+    height: 61,
+    width: 39,
+    },
+  image20: {
+    resizeMode: 'contain',
+    height: 52,
+    width: 49,
+    },
+  image21: {
+    resizeMode: 'contain',
+    height: 34,
+    width: 45,
+    },
+  image22: {
+    resizeMode: 'contain',
+    height: 59,
+    width: 69,
+  }
 
 });
