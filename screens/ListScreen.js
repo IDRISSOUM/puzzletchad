@@ -85,7 +85,7 @@ export default function TravelList({ navigation }) {
               onPress={() => navigation.push('ListScreenDetails', { item })}
             >
               <SharedElement
-                id={`item.${item.key}.photo`}
+                // id={`item.${item.key}.photo`}
                 style={[StyleSheet.absoluteFillObject]}
               >
                 <Animated.Image

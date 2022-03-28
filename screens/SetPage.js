@@ -53,15 +53,20 @@ export default function setPageTime({navigation}) {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
       <View style={{textAlign: 'center',}}>
-          <Text style={{fontSize: 15, fontWeight: '800', color: 'white'}}> Pour commencez le jeu{'\n'}<Text style={{ alignItems: 'center', right: 24}}>appuyez Sur Jouez</Text></Text>
-         </View> 
-      <Text style={styles.timerText}>{`${mins}:${secs}`}</Text>
-      <TouchableOpacity onPress={() => {toggle();  navigation.navigate('imageTchad', { val: remainingSecs })}} style={styles.button}>
-          <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Jouez'}</Text>
-      </TouchableOpacity>
-      {/* <TouchableOpacity onPress={reset} style={[styles.button, styles.buttonReset]}>
-          <Text style={[styles.buttonText, styles.buttonTextReset]}>Reset</Text>
-      </TouchableOpacity> */}
+          <View style={{alignItems: 'center',}}>
+            <Text style={styles.timerText}>{`${mins}:${secs}`}</Text>
+          </View>
+          <Text style={{fontSize: 15, fontWeight: '800', color: 'white'}}> Pour commencez le jeu</Text>
+         </View>
+
+         <View style={{alignItems: 'center', }}>
+          <Text style={{fontSize: 50, }}>👇</Text>
+         </View>
+
+          <TouchableOpacity onPress={() => {toggle();  navigation.navigate('imageTchad', { val: remainingSecs })}} style={styles.button}>
+              <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Jouez'}</Text>
+          </TouchableOpacity>
+          
     </View>
     
   );
@@ -78,8 +83,8 @@ const styles = StyleSheet.create({
   button: {
       borderWidth: 4,
       borderColor: '#b71c1c',
-      width: screen.width / 4,
-      height: screen.width / 4,
+      width: screen.width / 4.5,
+      height: screen.width / 4.5,
       borderRadius: screen.width / 2,
       alignItems: 'center',
       justifyContent: 'center'
@@ -91,7 +96,7 @@ const styles = StyleSheet.create({
   },
   timerText: {
       color: '#fff',
-      fontSize: 50,
+      fontSize: 30,
       marginBottom: 20
   },
   buttonReset: {

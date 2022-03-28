@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Dimensions, TouchableOpacity, Image, FlatList} from 'react-native';
+import {StyleSheet, View, Text, Dimensions, TouchableOpacity, Image, FlatList, Alert} from 'react-native';
 const { width, height } = Dimensions.get('screen');
 
 class Profile2 extends Component {
@@ -158,22 +158,8 @@ class Profile2 extends Component {
         image21: require('../assets2/21.png'),
         image22: require('../assets2/22.png'),   
         
-    } 
-  //  Data1 = this.state.props;
-  //  console.log(Data1);
+    }
   }
-
-// changeImageColor() {
-//   let images = [...this.state.images];
-//   for (let i of images) {
-//    console.log('ifiefyeoiyfoifyoiqhfoq',i.region);
-//    if(i){
-//      var im = Math.floor(Math.random() * i.region.length)
-
-//      console.log('jhuewwufguiwe',im);
-//    }
-//   }
-// }
 
 
 refresh() {
@@ -184,50 +170,17 @@ refresh() {
 
 incrementIsActive = (id) => {
   if(this.state.is_Active < 22 && id === this.state.is_Active){
-    alert("Bonne Reponse")
+    Alert.alert("Reponse", "Bonne Reponse")
     this.setState({
       is_Active: this.state.is_Active + 1
     })
   } else {
-    alert("mauvaise Reponse")
+    Alert.alert("Reponse", "mauvaise Reponse")
   }
   
 }
 
-// onPressHandler(id) {
-//     let images = [...this.state.images];           // making copy of renderData data locally
-//     let selectedFruits = [...this.state.selectedFruits];   // making copy of selectedFruits data locally
 
-//     for (let data of images) {
-//       if (data.id == id) {
-
-//         data.selected = (data.selected == null) ? true : !data.selected; // making button selcted or not using boolen
-
-//         if (data.selected) {        
-//           selectedFruits.push(data.ville);  // push selected fruit value to array
-//         } else {
-//           selectedFruits = this.arrayRemove(this.state.selectedFruits, data.ville)  // remove unselected fruit from array
-//         }
-//         break;
-//       }
-//       // console.log(renderData.length)
-//       console.log(selectedFruits.length)
-//     }
-
-//     this.setState({ images });  // updating current selected button data to state
-//     this.setState({ selectedFruits });  // updating current selected Fruits data to state
-//   }
-
-
-
-  // function which remove value from array and return  
-  // arrayRemove(arr, value) {
-
-  //   return arr.filter(function (geeks) {
-  //     return geeks != value;
-
-  //   });
-  // }
 
   getData(){
     if(!_isMounted){
@@ -239,7 +192,6 @@ incrementIsActive = (id) => {
           })
         }, 5000)
        })
-       console.log('mounting...', this._isMounted);
 
     }
     
@@ -249,35 +201,24 @@ incrementIsActive = (id) => {
       }
 
 componentDidMount(){
-  if(!this._isMounted)
     this.getData;
-    // console.log('TTTTTRRRREEE"<<<<<<>>>', this.props.route)
 }
  
 componentWillUnmount() {
-  if(this._isMounted){
     this.getData;
-  }
-  console.log('unmounting...', this._isMounted);
 }
 
   render() {
-    const { navigation, route } = this.props;
-    // console.log('ggggggggg', this.props.params.val)    
+    const { navigation, route } = this.props;   
     return (
       <View style={styles.container}>
-        <View style={styles.top}><Text style={{flexDirection: 'row-reverse'}}></Text></View>
+        <View style={[styles.top, {justifyContent: 'flex-end', flexDirection: 'row',}]}><Text style={{ fontSize: 25, fontWeight: 'bold'}}>00min:00s</Text></View>
         <View style={styles.middle}>
-        <View 
-        style={[{
-          right: -76,
-          bottom: -27,
-        },this.state.images[0].id === this.state.is_Active ? {}:{}]}
-        >
+          <View style={{flexDirection: 'row', flex: 1, marginTop: '-7.5%', marginLeft: '2%'}}>
+        
         <TouchableOpacity onPress={this.region0Alert}>
-            <Image source={this.state.images[0].region} style={styles.image0}/>
+            <Image source={this.state.images[0].region} style={[styles.image0, {right: -76, bottom: -27, }, this.state.images[0].id === this.state.is_Active ? {backgroundColor: 'red'}:{}]}/>
         </TouchableOpacity>
-        </View>
 
         <View style={{
           top: 74,
@@ -288,16 +229,11 @@ componentWillUnmount() {
         </TouchableOpacity>
         </View>
 
-        <View style={[{
-          left: -85,
-          bottom: -101.9,
-
-          },this.state.images[1].id === this.state.is_Active ? {}:{}]}>
+        
         <TouchableOpacity
           onPress={this.region2Alert} >
-            <Image source={this.state.images[1].region} style={styles.image2}/>
+            <Image source={this.state.images[1].region} style={[styles.image2, {left: -85, bottom: -101.9,},this.state.images[1].id === this.state.is_Active ? {backgroundColor: 'red'}:{}]}/>
         </TouchableOpacity> 
-        </View>
 
         <View style={{
           left: -95.3,
@@ -515,6 +451,7 @@ componentWillUnmount() {
               <Image source={this.state.image22} style={styles.image22} />
           </TouchableOpacity>
         </View>
+        </View>
           </View>
           <View style={styles.bottom}>
             <View style={styles.FlatListContainer}>
@@ -524,10 +461,10 @@ componentWillUnmount() {
                 columnWrapperStyle={styles.row}
                 keyExtractor={item => item.id.toString()} // keyExtractor convert INT  'item.id' value to string 
                 renderItem={({ item }) =>
-                  <TouchableOpacity  color={item.selected == true ? 'red' : '#ffffff'} //  color of TouchableOpacity will change according to selection
+                  <TouchableOpacity  color={item ? '#FFFFFF' : 'red'} //  color of TouchableOpacity will change according to selection
 
                     style={
-                      item.selected == true
+                      item
                         // style when button is selected
                         ? {
                           margin: 5, 
@@ -540,8 +477,8 @@ componentWillUnmount() {
                           elevation: 2,
                           padding: 10,
                           width: 150,
-                          height: 50,
-                          // backgroundColor: '#FFFFFF',
+                          height: 35,
+                          backgroundColor: 'red',
                         }
                         // style when button is unSelected
                         : {
@@ -555,8 +492,9 @@ componentWillUnmount() {
                           elevation: 2,
                           padding: 10,
                           width: 150,
-                          height: 50,
-                          // backgroundColor: '#FFFFFF',
+                          height: 35,
+                          color: '#FFFFFF',
+                          backgroundColor: '#FFFFFF',
                         }
                     }
                     // onPress will call the function when button is clicked
@@ -567,7 +505,6 @@ componentWillUnmount() {
         </View>
       </View>
     );
-    console.log(item.id) 
   }
 }
 
@@ -577,29 +514,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     backgroundColor: "#fff",
-    // padding: 0,
-    // margin: 10,
     width: width,
     height: height
   },
   top: {
     flex: 0.5,
     width: width,
-    height: height
-    // backgroundColor: "white",
-    // borderWidth: 2,
+    height: height,
   },
   middle: {
     flex: 5,
     backgroundColor: "#FFFFFF",
     borderWidth: 2,
     flexDirection: "row",
-    // width: width,
-    // height: height
   },
   bottom: {
     flex: 1,
-    // flexDirection: "row",
     borderWidth: 0,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
@@ -608,12 +538,6 @@ const styles = StyleSheet.create({
     width: width,
     height: height
   },
-  // container1: {
-  //   flex: 5,
-  //   justifyContent: 'center',
-  //   alignItems: "center",
-  //   flexDirection: "row"
-  // },
   image0: {
     resizeMode: 'contain',
     height: 192.46,
@@ -749,9 +673,9 @@ const styles = StyleSheet.create({
         
       },
       custom: {
-        color: '#000000',
+        color: '#FFFFFF',
         fontFamily: 'Roboto',
-        fontSize: 15,
+        fontSize: 12,
         textAlign: 'center',
       }
 });

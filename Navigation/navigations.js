@@ -32,7 +32,7 @@ function ListStackScreen() {
     }}
     />
     <ListStack.Screen 
-    name="ListScreenDetail" 
+    name="ListScreenDetails" 
     component={ListScreenDetails} 
     options={{
       header: () => null,
