@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@ant-design/icons-react-native@^2.3.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@ant-design/icons-react-native/-/icons-react-native-2.3.2.tgz#86e412d1ce8d629534a5d9f45cd3d8f7ca6dae56"
+  integrity sha512-ULCN3+elfAsvu71Xa5KODi97Y3P2aUkJm4s8mJaPoRjiU+BR+Y6ejv3vbc40yV62EOdlAOMKhvKbFlsXMjZ2ow==
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.12.13", "@babel/code-frame@^7.16.0":
   version "7.16.0"
   resolved "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.16.0.tgz"
@@ -1015,6 +1020,16 @@
     "@types/node" "*"
     "@types/yargs" "^16.0.0"
     chalk "^4.0.0"
+
+"@mdi/js@^6.6.96":
+  version "6.6.96"
+  resolved "https://registry.npmjs.org/@mdi/js/-/js-6.6.96.tgz"
+  integrity sha512-ke9PN5DjPCOlMfhioxeZYADz8Yiz6v47W0IYRza01SSJD7y1EwESVpwFnnFUso+eCoWtE1CO9cTIvQF6sEreuA==
+
+"@mdi/react@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/@mdi/react/-/react-1.5.0.tgz"
+  integrity sha512-NztRgUxSYD+ImaKN94Tg66VVVqXj4SmlDGzZoz48H9riJ+Awha56sfXH2fegw819NWo7KI3oeS1Es0lNQqwr0w==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -5733,7 +5748,7 @@ react-native-codegen@^0.0.7:
 
 react-native-easy-rating@^0.2.1:
   version "0.2.1"
-  resolved "https://registry.yarnpkg.com/react-native-easy-rating/-/react-native-easy-rating-0.2.1.tgz#5ee016baf16d01e9d57c32d65febda7285033202"
+  resolved "https://registry.npmjs.org/react-native-easy-rating/-/react-native-easy-rating-0.2.1.tgz"
   integrity sha512-BPUDSG161hwXN+qwG4aCr5aqw7BkEnZqAKjLw9zGFjSDzcUq/mtelCgw/+V34gwndYzhi7KuAIMlW/NiJrq4EA==
 
 react-native-flatlist-slider@^1.0.6:
@@ -5790,12 +5805,12 @@ react-native-picture-puzzle@^1.0.0:
 
 react-native-rate@^1.2.9:
   version "1.2.9"
-  resolved "https://registry.yarnpkg.com/react-native-rate/-/react-native-rate-1.2.9.tgz#dc9fed2c8026602827c71d9a133104f98ce0c62a"
+  resolved "https://registry.npmjs.org/react-native-rate/-/react-native-rate-1.2.9.tgz"
   integrity sha512-XBA5XdcWYtRyVuGFKJrsufFfaA9fSwOI/bzzDsfcovJQbYMJ0KIXMD3dFmsxAn0Kd3LDKwnHqnpjrmXOSF9rcQ==
 
 react-native-ratings@^8.1.0:
   version "8.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-8.1.0.tgz#3fa9ad29128dc3a88e59518ba151e61c59dd0647"
+  resolved "https://registry.npmjs.org/react-native-ratings/-/react-native-ratings-8.1.0.tgz"
   integrity sha512-+QOJ4G3NjVkI1D+tk4EGx1dCvVfbD2nQdkrj9cXrcAoEiwmbep4z4bZbCKmWMpQ5h2dqbxABU8/eBnbDmvAc3g==
   dependencies:
     lodash "^4.17.15"

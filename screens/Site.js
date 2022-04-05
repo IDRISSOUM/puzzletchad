@@ -7,15 +7,12 @@ class Site extends Component {
   render() {
     const OpenURLButton = ({ url, children }) => {
       const handlePress = useCallback(async () => {
-        // Checking if the link is supported for links with custom URL scheme.
         const supported = await Linking.canOpenURL(url);
     
         if (supported) {
-          // Opening the link with some app, if the URL scheme is "http" the web link should be opened
-          // by some browser in the mobile
           await Linking.openURL(url);
         } else {
-          Alert.alert(`Don't know how to open this URL: ${url}`);
+          Alert.alert(`Je ne sais pas comment ouvrir cette URL: ${url}`);
         }
       }, [url]);
     
@@ -25,9 +22,9 @@ class Site extends Component {
     return (
       <View style={{
         flex: 0.5,
+        paddingTop: '5%'
         }}>
         <Image
-          // eslint-disable-next-line react-native/no-inline-styles
           style={{
             resizeMode: 'contain',
             alignSelf: 'center',
@@ -41,8 +38,6 @@ class Site extends Component {
             },
             shadowOpacity: 0.18,
             shadowRadius: 1.0,
-
-            elevation: 1,
           }}
           source={require('../assets/cato_logo.jpg')}
         />
@@ -52,10 +47,12 @@ class Site extends Component {
             <Text style={{fontSize: 15, fontStyle: 'normal', color: 'blue', textAlign: 'center', }}></Text>
           </TouchableOpacity>
         </View> */}
-        <View style={styles.container}>
+        <View style={[styles.container, {margin: '5%', paddingBottom: '3%'}]}>
           <Text style={{fontSize: 20, fontWeight: 'bold', fontStyle: 'italic'}}>Lien vers notre site web :</Text>
-          <OpenURLButton url={supportedURL}>Open Supported URL</OpenURLButton>
-      </View>
+        </View>
+        <View style={{marginHorizontal: '25%'}}>
+          <OpenURLButton url={supportedURL}>Allez sur notre site</OpenURLButton>
+        </View>
       </View>
     );
   }

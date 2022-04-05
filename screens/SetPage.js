@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, StatusBar, TouchableOpacity, Dimensions } from 
 const screen = Dimensions.get('window');
 
 const formatNumber = number => `0${number}`.slice(-2);
-var timeOut = 30;
+var timeOut = 50;
 
 const getRemaining = (time) => {
     const mins = Math.floor(time / 60);
@@ -12,7 +12,7 @@ const getRemaining = (time) => {
     return { mins: formatNumber(mins), secs: formatNumber(secs)};
 }
 
-export default function setPageTime({navigation}) {
+function setPageTime({navigation}) {
   const [remainingSecs, setRemainingSecs] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const { mins, secs } = getRemaining(remainingSecs);
@@ -63,7 +63,7 @@ export default function setPageTime({navigation}) {
           <Text style={{fontSize: 50, }}>👇</Text>
          </View>
 
-          <TouchableOpacity onPress={() => {toggle();  navigation.navigate('imageTchad', { val: remainingSecs })}} style={styles.button}>
+          <TouchableOpacity onPress={() => {toggle(); navigation.navigate('imageTchad', { val: remainingSecs })}} style={styles.button}>
               <Text style={styles.buttonText}>{isActive ? 'Pause' : 'Jouez'}</Text>
           </TouchableOpacity>
           
@@ -108,3 +108,4 @@ const styles = StyleSheet.create({
   }
 });
 
+export default setPageTime;

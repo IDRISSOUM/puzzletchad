@@ -121,7 +121,7 @@ export default function TravelList({ navigation }) {
                     {item.location}
                   </Animated.Text>
                 </SharedElement>
-                <View>
+                {/* <View>
                   <View
                     style={{
                       width: 50,
@@ -144,7 +144,7 @@ export default function TravelList({ navigation }) {
                     </Text>
                     <Text style={{ fontSize: 9, color: 'white' }}>days</Text>
                   </View>
-                </View>
+                </View> */}
               </View>
             </TouchableOpacity>
           );

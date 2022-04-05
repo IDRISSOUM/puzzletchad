@@ -1,8 +1,11 @@
 import * as React from 'react';
+import { Text } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
+import Icon from 'react-native-vector-icons/Ionicons';
+// import Icon from 'react-native-vector-icons/FontAwesome5';
 import { NavigationContainer } from '@react-navigation/native';
 import Home from '../screens/Home';
 import Atlas from '../screens/Atlas';
@@ -148,7 +151,7 @@ export function AppNavigator() {
           header: () => null,
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={'#000080'} size={40} />
+            <MaterialCommunityIcons name="home-outline" color={'#000080'} size={40} />
           ),
         }}
       />
@@ -159,7 +162,7 @@ export function AppNavigator() {
           header: () => null,
           tabBarLabel: 'Atlas',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="atom" color={'#000080'} size={40} />
+            <Icon name="globe-outline" color="#000080" size={35}/> 
           ),
         }}
       />
@@ -170,7 +173,7 @@ export function AppNavigator() {
           header: () => null,
           tabBarLabel: 'Puzzle',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="puzzle-minus" color={'#000080'} size={40} />
+            <MaterialCommunityIcons name="puzzle-minus" color={'#000080'} size={40} /> 
           ),
         }}
       />
@@ -179,9 +182,9 @@ export function AppNavigator() {
         component={HomeStackScreen}
         options={{
           headerShown: false,
-          tabBarLabel: 'Setting',
+          tabBarLabel: 'Plus',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="apps" color={'#000080'} size={40} />
+            <Icon name="ellipsis-horizontal-circle-outline" color="#000080" size={35}/> 
           ),
         }}
       />

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import MapView from 'react-native-maps';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Alert, useWindowDimensions, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Alert, Pressable, SafeAreaView, Modal } from 'react-native';
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 const { width, height } = Dimensions.get('screen');
 const { ITEM_WIDTH, ITEM_HEIGHT, RADIUS, SPACING, FULL_SIZE } = tutorial2Spec;
 import { tutorial2Spec } from '../config/theme';
+import PropTypes from "prop-types";
 
 
 export default class Atlas extends Component {
@@ -15,6 +16,7 @@ export default class Atlas extends Component {
     this.state = {
       window,
       screen,
+      modalVisible: false,
       showAlert: false,
       images: [
         {
@@ -113,9 +115,17 @@ export default class Atlas extends Component {
     }
   }
 
-region1Alert = () =>
+  onNegativeButtonPress = () => {
+    this.props.onPressNegativeButton();
+  };
+
+  onPositiveButtonPress = () => {
+    this.props.onPressPositiveButton();
+  };
+
+  region1Alert = () =>
   Alert.alert(
-    "Region de Borkou",
+    "province de Borkou",
     "Le Borkou est une des 23 provinces du Tchad dont le chef-lieu est Faya-Largeau. Elle a été créée le 19 février 2008 par démembrement de l'ancienne région du Borkou-Ennedi-Tibesti. Entre 2002 et février 2008, le Borkou a été l'un des 4 départements composant la région du Borkou-Ennedi-Tibesti. Comptant une population de 97 251 habitants et une perficie de 241 000 km²",
     [
       {
@@ -129,7 +139,7 @@ region1Alert = () =>
 
   region0Alert = () =>
   Alert.alert(
-    "Region de Tibesti",
+    "province de Tibesti",
     "Le Tibesti est l'une des 23 régions du Tchad dont le chef-lieu est Bardaï. Elle a été créée le 19 février 2008 par démembrement de l'ancienne région du Borkou-Ennedi-Tibesti. Entre 2002 et février 2008, le Tibesti a été l'un des trois départements composant la région du Borkou-Ennedi-Tibesti. Comptant 21 970 habitants et une sperficie de 220 237 km²",
     [
       {
@@ -143,8 +153,8 @@ region1Alert = () =>
 
   region2Alert = () =>
   Alert.alert(
-    "Region de Ennedi",
-    "L'Ennedi est une ancienne région administrative du Tchad dont le chef-lieu est Fada. Elle a été créée le 19 février 2008 par démembrement de l'ancienne région du Borkou-Ennedi-Tibesti. La région Ennedi est elle-même, démembrée le 4 septembre 2012 en deux régions Ennedi Est et Ennedi Ouest. La region de Ennedi compte une population de 113 862 habitants avec une superficie de 85 491 km²",
+    "province de Ennedi",
+    "L'Ennedi est une ancienne région administrative du Tchad dont le chef-lieu est Fada. Elle a été créée le 19 février 2008 par démembrement de l'ancienne région du Borkou-Ennedi-Tibesti. La région Ennedi est elle-même, démembrée le 4 septembre 2012 en deux régions Ennedi Est et Ennedi Ouest. La province de Ennedi compte une population de 113 862 habitants avec une superficie de 85 491 km²",
     [
       {
         text: "Retour",
@@ -323,8 +333,8 @@ region1Alert = () =>
   );
   region15Alert = () =>
   Alert.alert(
-    "Region de Moyen-Chari",
-    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    "Region de Chari-Baguirmi",
+    "Le Chari-Baguirmi est une des 23 Provinces du Tchad dont le chef-lieu est Massenya. Elle correspond à une partie de l'ancienne préfecture du Chari-Baguirmi. Elle est divisée en 4 départements et 18 communes. Comptant 621 785  habitants et une sperficie de 45 432 km²",
     [
       {
         text: "Retour",
@@ -336,8 +346,8 @@ region1Alert = () =>
   );
   region17Alert = () =>
   Alert.alert(
-    "Region de Moyen-Chari",
-    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    "Region de Moyen-Kebbi Est",
+    "Le Mayo-Kebbi Est est une des 23 régions du Tchad (Décrets N° 415/PR/MAT/02 et 419/PR/MAT/02) dont le chef-lieu est Bongor. Elle correspond à une partie de l'ancienne préfecture du Mayo-Kebbi (sous-préfectures de Bongor, Fianga et Gounou Gaya). Comptant 769 198 habitants et une sperficie de 18 186 km² km²",
     [
       {
         text: "Retour",
@@ -349,8 +359,8 @@ region1Alert = () =>
   );
   region18Alert = () =>
   Alert.alert(
-    "Region de Moyen-Chari",
-    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    "Region de Tandjilé",
+    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 458 240 habitants et une sperficie de 17 604 km2",
     [
       {
         text: "Retour",
@@ -362,8 +372,8 @@ region1Alert = () =>
   );
   region19Alert = () =>
   Alert.alert(
-    "Region de Moyen-Chari",
-    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    "Region de Mandoul",
+    "Le Mandoul est une des 23 régions du Tchad dont le chef-lieu est Koumra. Elle correspond à une partie de l'ancienne préfecture du Moyen-Chari. Comptant 637 086 habitants et une sperficie de 17 517 km²",
     [
       {
         text: "Retour",
@@ -375,8 +385,8 @@ region1Alert = () =>
   );
   region20Alert = () =>
   Alert.alert(
-    "Region de Moyen-Chari",
-    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    "Region de Mayo-Kebbi Ouest",
+    "Le Mayo-Kebbi Ouest est l'une des 23 régions du Tchad dont le chef-lieu est Pala. Elle correspond à une partie de l'ancienne préfecture du Mayo-Kebbi. Comptant 569 087 habitants et une sperficie de  12 479 km²",
     [
       {
         text: "Retour",
@@ -386,10 +396,24 @@ region1Alert = () =>
       { text: "OK", onPress: () => console.log("OK Pressed") }
     ]
   );
+  
   region21Alert = () =>
   Alert.alert(
-    "Region de Moyen-Chari",
-    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    "Region de Logone Occidental",
+    "Le Logone-Occidental est une des 23 provinces du Tchad dont le chef-lieu est Moundou. La province est située au sud du pays, elle est frontalière du Cameroun. Comptant 683 293 habitants et une sperficie de 8 844 km²",
+    [
+      {
+        text: "Retour",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "retour"
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") }
+    ]
+  );
+  region22Alert = () =>
+  Alert.alert(
+    "Region de Logone Oriental",
+    "Le Logone-Oriental est une des 23 provinces du Tchad dont le chef-lieu est Doba. La province est située au sud du pays, elle est frontalière de la République centrafricaine et du Cameroun. Comptant 440 342  habitants et une sperficie de 23 802 km²",
     [
       {
         text: "Retour",
@@ -557,7 +581,7 @@ ccomponentDidUpdate(){
             left: -1111,
             bottom: -375         
             }}
-            onPress={this.inconnu} >
+            onPress={this.region13Alert} >
               <Image source={this.state.image11} style={styles.image11} />
           </TouchableOpacity>
 
@@ -590,7 +614,7 @@ ccomponentDidUpdate(){
             bottom: -396.9
 
          }}
-            onPress={this.region13Alert} >
+            onPress={this.region15Alert} >
               <Image source={this.state.image14} style={styles.image14} />
           </TouchableOpacity>
 
@@ -601,7 +625,7 @@ ccomponentDidUpdate(){
             bottom: -458
 
          }}
-            onPress={this.region12Alert} >
+            onPress={this.region14Alert} >
               <Image source={this.state.image15} style={styles.image15} />
           </TouchableOpacity>
 
@@ -623,7 +647,7 @@ ccomponentDidUpdate(){
             bottom: -438
  
           }}
-            onPress={this.createTwoButtonAlert} >
+            onPress={this.region17Alert} >
               <Image source={this.state.image17} style={styles.image17} />
           </TouchableOpacity>
 
@@ -634,7 +658,7 @@ ccomponentDidUpdate(){
             bottom: -469.5
  
           }}
-            onPress={this.createTwoButtonAlert} >
+            onPress={this.region18Alert} >
               <Image source={this.state.image18} style={styles.image18} />
           </TouchableOpacity>
 
@@ -645,7 +669,7 @@ ccomponentDidUpdate(){
             bottom: -489.6
  
           }}
-            onPress={this.createTwoButtonAlert} >
+            onPress={this.region19Alert} >
               <Image source={this.state.image19} style={styles.image19} />
           </TouchableOpacity>
 
@@ -656,7 +680,7 @@ ccomponentDidUpdate(){
             bottom: -479
  
           }}
-            onPress={this.createTwoButtonAlert} >
+            onPress={this.region20Alert} >
               <Image source={this.state.image20} style={styles.image20} />
           </TouchableOpacity>
 
@@ -667,7 +691,7 @@ ccomponentDidUpdate(){
             bottom: -503
             
           }}
-            onPress={this.createTwoButtonAlert} >
+            onPress={this.region21Alert} >
               <Image source={this.state.image21} style={styles.image21} />
           </TouchableOpacity>
 
@@ -678,7 +702,7 @@ ccomponentDidUpdate(){
             bottom: -505
  
           }}
-            onPress={this.createTwoButtonAlert} >
+            onPress={this.region22Alert} >
               <Image source={this.state.image22} style={styles.image22} />
           </TouchableOpacity>
           </View>

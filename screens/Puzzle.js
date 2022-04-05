@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, View, Text, Dimensions, TouchableOpacity, Image, FlatList, Alert} from 'react-native';
 // export const { width, height} = Dimensions.get('window');
 const { width, height } = Dimensions.get('screen');
+import PropTypes from "prop-types";
 
 class Profile2 extends Component {
   _isMounted = false;
@@ -590,7 +591,6 @@ incrementIsActive = (id) => {
   
 }
   getData(){
-    if(!_isMounted){
       this.state.images.map((item, key) => {
         setTimeout(() => {
           this.setState({
@@ -599,8 +599,6 @@ incrementIsActive = (id) => {
           })
         }, 5000)
        })
-
-    }
     
  }
  componentDidUpdate(prevProps) {
@@ -609,6 +607,7 @@ incrementIsActive = (id) => {
 
 componentDidMount(){
     this.getData;
+    // toggle()
 }
  
 componentWillUnmount() {

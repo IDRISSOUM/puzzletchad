@@ -5,51 +5,51 @@ class Real extends Component {
   render() {
     return (
       <ScrollView style={{}}>
-        <View style={{ paddingTop: 15}}>
-            <Text style={styles.real}>Les Réalisations et les Expériences CartoTchad :</Text>
-      </View>
+        <View style={{ paddingTop: 15, padding: 5}}>
+          <Text style={styles.real}>Les Réalisations et les Expériences CartoTchad :</Text>
+        </View>
       
       <View style={{
         flex: 1,
         padding: 10
       }}>   
-          <Text style={styles.innerText}>{'\n'}
+          <Text style={[styles.innerText, {}]}>{'\n'}
             Une Plateforme Cartographique et Système d’Information Géographique (SIG), Géomatique, Collecte de Donnée Mobile (CDM), de la production de cartographies interactives, 
             l’analyse spatiale, de Développement des Applications web et mobile et de Conseils-Formation oriente dans le secteur de la Technologie d’information et de 
             Communication (TIC), de la santé, l’Eduction-Enseignement Supérieur, Géomarketing, Agriculture et Elevage, de la mine-Géologie, l’Environnement-Aménagement etc. :
           </Text>
       </View>
       <View style={ styles.row }>
-        <View style={ styles.bullet }>
-          <Text style={{fontSize: 15}}>{'\u2022' + " "}</Text>
-        </View>
+        {/* <View style={ styles.bullet }>
+          <Text style={{fontSize: 15}}>●</Text>
+        </View> */}
         <View style={ styles.bulletText }>
-          <Text style={styles.font}>Le développement d’une base de données géographiques dénommée Cartothèque consultable à exploitable et à téléchargeable gratuitement.</Text>
+          <Text style={styles.font}>●{'\t'}Le développement d’une base de données géographiques dénommée Cartothèque consultable à exploitable et à téléchargeable gratuitement.</Text>
         </View>
       </View>
       <View style={ styles.row }>
-        <View style={ styles.bullet }>
-          <Text style={{fontSize: 15}}>{'\u2022' + " "}</Text>
-        </View>
+        {/* <View style={ styles.bullet }>
+          <Text style={{fontSize: 15}}>●</Text>
+        </View> */}
         <View style={ styles.bulletText }>
-          <Text style={styles.font}>Une mission de cartographie sur OpenStreetMap dans cadre du projet MOUHANA de wenaklabs à N’Djamena ;.</Text>
+          <Text style={[styles.font, {}]}>●{'\t'}Une mission de cartographie sur OpenStreetMap dans cadre du projet MOUHANA de wenaklabs à N’Djamena ;.</Text>
         </View>
       </View>
 
       <View style={ styles.row }>
-        <View style={ styles.bullet }>
-          <Text style={{fontSize: 15}}>{'\u2022' + " "}</Text>
-        </View>
+        {/* <View style={ styles.bullet }>
+          <Text style={{fontSize: 15}}>●</Text>
+        </View> */}
         <View style={ styles.bulletText }>
-          <Text style={styles.font}>Une assistance en conception et réalisation des cartes thématiques au Cabinet Cyril Service dans le cadre du Project ** Elaboration du Plan de Développement Communal(PDC) de la Commune du 4ème Arrondissement de la Ville de N’Djamena ;.</Text>
+          <Text style={styles.font}>●{'\t'}Une assistance en conception et réalisation des cartes thématiques au Cabinet Cyril Service dans le cadre du Project ** Elaboration du Plan de Développement Communal(PDC) de la Commune du 4ème Arrondissement de la Ville de N’Djamena ;.</Text>
         </View>
       </View>
       <View style={ styles.row }>
-        <View style={ styles.bullet }>
+        {/* <View style={ styles.bullet }>
           <Text style={{fontSize: 15}}>{'\u2022' + " "}</Text>
-        </View>
+        </View> */}
         <View style={ styles.bulletText }>
-          <Text style={styles.font}>Le développement d’une application web et mobile pour qui donne l’accès à des informations (sur la population, le Climat, l’Agriculture et l’Élevage, le mine-Géologie, Tourisme, la santé, l’Éducation…) des 23 provinces du Tchad. C’est dans cette optique que CartoTchad a remporté des prix dans diverses compétitions en Entreprenariat au Tchad, notamment :</Text>
+          <Text style={styles.font}>●{'\t'}Le développement d’une application web et mobile pour qui donne l’accès à des informations (sur la population, le Climat, l’Agriculture et l’Élevage, le mine-Géologie, Tourisme, la santé, l’Éducation…) des 23 provinces du Tchad. C’est dans cette optique que CartoTchad a remporté des prix dans diverses compétitions en Entreprenariat au Tchad, notamment :</Text>
         </View>
       </View>
       </ScrollView>
@@ -61,12 +61,15 @@ class Real extends Component {
 const styles = StyleSheet.create({
   real: {
     flex: 1,
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: 'bold',
+    paddingHorizontal: 10,
     backgroundColor: 'rgb(135, 206, 250)',
+    marginHorizontal: 10 
   },
   innerText: {
     textAlign: 'justify',
+    paddingHorizontal: 5
 
   },
   row: {
@@ -81,12 +84,14 @@ const styles = StyleSheet.create({
   },
   bulletText: {
     flex: 1,
-    textAlign: 'justify',
+    // textAlign: 'justify',
     fontStyle: "normal",
     fontSize: 15,
     padding: 10
-
   },
+  font: {
+    textAlign: 'justify',
+  }
 }) 
 
 export default Real;
