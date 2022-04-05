@@ -1,0 +1,9 @@
+com/jeutchad/MainActivity.java
+ com.jeutchad.MainActivity
+com/jeutchad/BuildConfig.java
+ com.jeutchad.BuildConfig
+com/jeutchad/MainApplication.java
+ com.jeutchad.MainApplication
+ com.jeutchad.MainApplication$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
