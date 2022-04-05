@@ -10,7 +10,7 @@ export default [
     },
     {
       key: '2',
-      location: 'Le Secteur Agricol',
+      location: 'Le Secteur Agricole',
       numberOfDays: 6,
       image:
         'https://www.ambatchadberlin.de/wp-content/uploads/2020/11/01-3.jpg',

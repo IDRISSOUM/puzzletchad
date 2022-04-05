@@ -321,6 +321,84 @@ region1Alert = () =>
       { text: "OK", onPress: () => console.log("OK Pressed") }
     ]
   );
+  region15Alert = () =>
+  Alert.alert(
+    "Region de Moyen-Chari",
+    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    [
+      {
+        text: "Retour",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "retour"
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") }
+    ]
+  );
+  region17Alert = () =>
+  Alert.alert(
+    "Region de Moyen-Chari",
+    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    [
+      {
+        text: "Retour",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "retour"
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") }
+    ]
+  );
+  region18Alert = () =>
+  Alert.alert(
+    "Region de Moyen-Chari",
+    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    [
+      {
+        text: "Retour",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "retour"
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") }
+    ]
+  );
+  region19Alert = () =>
+  Alert.alert(
+    "Region de Moyen-Chari",
+    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    [
+      {
+        text: "Retour",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "retour"
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") }
+    ]
+  );
+  region20Alert = () =>
+  Alert.alert(
+    "Region de Moyen-Chari",
+    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    [
+      {
+        text: "Retour",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "retour"
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") }
+    ]
+  );
+  region21Alert = () =>
+  Alert.alert(
+    "Region de Moyen-Chari",
+    "Le Moyen-Chari est une des 23 régions du Tchad créée à la suite du décret N° 419/PR/MAT/02 dont le chef-lieu est Sarh. Comptant 598 284 habitants et une sperficie de 41 460 km²",
+    [
+      {
+        text: "Retour",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "retour"
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") }
+    ]
+  );
 
 getData(){
    this.state.images.map((item, key) => {
@@ -357,7 +435,7 @@ ccomponentDidUpdate(){
     
     return(
       <SafeAreaView style={{backgroundColor: '#22427CFF'}}>
-        <Text style={{fontSize: 13, fontWeight: '500', color: 'white', margin: 10}}> Carte interactive pour l'apprentissage des regions du tchad {'\n'} Appuyez sur une region pour en savoir plus </Text>
+        <Text style={{fontSize: 13, fontWeight: '500', color: 'white', margin: 10}}> Carte interactive pour l'apprentissage des provinces du Tchad {'\n'} Appuyez sur une province pour en savoir plus </Text>
       <View style={styles.container}>
         <View style={{flexDirection: 'row', flex: 1, marginTop: '5%', marginLeft: '5%'}} >
         <TouchableOpacity onPress={this.region0Alert}  style={{

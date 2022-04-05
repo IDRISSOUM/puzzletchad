@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, StatusBar, TouchableOpacity, Dimensions } from 
 const screen = Dimensions.get('window');
 
 const formatNumber = number => `0${number}`.slice(-2);
-var timeOut = 20;
+var timeOut = 30;
 
 const getRemaining = (time) => {
     const mins = Math.floor(time / 60);
